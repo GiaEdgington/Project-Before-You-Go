@@ -1,0 +1,99 @@
+{
+  "kind": "books#volume",
+  "id": "LsKKDwAAQBAJ",
+  "etag": "dZT3o0USHTI",
+  "selfLink": "https://www.googleapis.com/books/v1/volumes/LsKKDwAAQBAJ",
+  "volumeInfo": {
+    "title": "The Age of Innocence",
+    "authors": [
+      "Edith Wharton"
+    ],
+    "publisher": "OUP Oxford",
+    "publishedDate": "2006-02-09",
+    "description": "'They lived in a kind of hieroglyphic world, where the real thing was never said or done or even thought, but only represented by a set of arbitrary signs.' Edith Wharton's most famous novel, written immediately after the end of the First World War, is a brilliantly realized anatomy of New York society in the 1870s, the world in which she grew up, and from which she spent her life escaping. Newland Archer, Wharton's protagonist, charming, tactful, enlightened, is a thorough product of this society; he accepts its standards and abides by its rules but he also recognizes its limitations. His engagement to the impeccable May Welland assures him of a safe and conventional future, until the arrival of May's cousin Ellen Olenska puts all his plans in jeopardy. Independent, free-thinking, scandalously separated from her husband, Ellen forces Archer to question the values and assumptions of his narrow world. As their love for each other grows, Archer has to decide where his ultimate loyalty lies. ABOUT THE SERIES: For over 100 years Oxford World's Classics has made available the widest range of literature from around the globe. Each affordable volume reflects Oxford's commitment to scholarship, providing the most accurate text plus a wealth of other valuable features, including expert introductions by leading authorities, helpful notes to clarify the text, up-to-date bibliographies for further study, and much more.",
+    "industryIdentifiers": [
+      {
+        "type": "ISBN_13",
+        "identifier": "9780191517549"
+      },
+      {
+        "type": "ISBN_10",
+        "identifier": "0191517542"
+      }
+    ],
+    "readingModes": {
+      "text": false,
+      "image": true
+    },
+    "pageCount": 304,
+    "printType": "BOOK",
+    "categories": [
+      "Fiction"
+    ],
+    "averageRating": 3.5,
+    "ratingsCount": 31,
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "preview-1.0.0",
+    "panelizationSummary": {
+      "containsEpubBubbles": false,
+      "containsImageBubbles": false
+    },
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=LsKKDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=LsKKDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=LsKKDwAAQBAJ&printsec=frontcover&dq=title:The+Age+of+Innocence%7D&hl=&cd=2&source=gbs_api",
+    "infoLink": "https://play.google.com/store/books/details?id=LsKKDwAAQBAJ&source=gbs_api",
+    "canonicalVolumeLink": "https://play.google.com/store/books/details?id=LsKKDwAAQBAJ"
+  },
+  "saleInfo": {
+    "country": "US",
+    "saleability": "FOR_SALE",
+    "isEbook": true,
+    "listPrice": {
+      "amount": 5.99,
+      "currencyCode": "USD"
+    },
+    "retailPrice": {
+      "amount": 4.61,
+      "currencyCode": "USD"
+    },
+    "buyLink": "https://play.google.com/store/books/details?id=LsKKDwAAQBAJ&rdid=book-LsKKDwAAQBAJ&rdot=1&source=gbs_api",
+    "offers": [
+      {
+        "finskyOfferType": 1,
+        "listPrice": {
+          "amountInMicros": 5990000.0,
+          "currencyCode": "USD"
+        },
+        "retailPrice": {
+          "amountInMicros": 4610000.0,
+          "currencyCode": "USD"
+        },
+        "giftable": true
+      }
+    ]
+  },
+  "accessInfo": {
+    "country": "US",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+      "isAvailable": false
+    },
+    "pdf": {
+      "isAvailable": true,
+      "acsTokenLink": "http://books.google.com/books/download/The_Age_of_Innocence-sample-pdf.acsm?id=LsKKDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=LsKKDwAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+  },
+  "searchInfo": {
+    "textSnippet": "As their love for each other grows, Archer has to decide where his ultimate loyalty lies. ABOUT THE SERIES: For over 100 years Oxford World&#39;s Classics has made available the widest range of literature from around the globe."
+  }
+}

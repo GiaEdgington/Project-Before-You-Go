@@ -31,3 +31,28 @@
     transform: rotate(360deg);
   }
 }
+
+li {
+  list-style-type: none;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.bookList {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.bookdiv {
+  width: 200px;
+}
+
+
+p {
+  font-size: 12px;
+}
