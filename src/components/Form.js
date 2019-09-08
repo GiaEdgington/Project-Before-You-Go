@@ -1,19 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import BookDisplay from '../containers/BookDisplay';
+import DestinationDisplay from '../containers/DestinationDisplay';
 
 class Form extends React.Component {
 
     destinationSearch = ""
 
     state = {
-        destination: "You Destination",
+        destination: "Your Destination",
         destination_id: null,
-        books:[]
+        books:[],
+        userDestinations: [],
+        clicked: false
     }
 
     handleChange = (destination) => {
         this.destinationSearch = destination;
+    }
+
+    handleClick = () => {
+        this.setState({ clicked: true })
+    }
+
+    componentDidMount(){
+        fetch(`http://localhost:3000/users/4`)
+        .then(response => response.json())
+        .then(response => this.setState({userDestinations: response.destinations.map(dest => dest.name)}))
     }
 
     setDestination = () => {
@@ -58,7 +71,15 @@ class Form extends React.Component {
                 <input type="text" placeholder="destination" name="destination" onChange={(e) => this.handleChange(e.target.value)} /><br/>
                 <button>Search for Books</button>
                 </form>
-                <button onClick={this.setDestination}>Create Trip</button>
+                <button onClick={this.handleClick}>Create Trip</button>
+                {/* //label not showing because of this */}
+                {   this.state.clicked && this.state.userDestinations.includes(this.destinationSearch)
+                    ? 
+                    <DestinationDisplay />
+                    :
+                    this.setDestination()
+                } 
+
                 <BookDisplay bookTitles={this.state.books} destination_id={this.state.destination_id}
                 />
             </div>
