@@ -11,40 +11,53 @@ class Form extends React.Component {
         destination: "Your Destination",
         destination_id: null,
         books:[],
-        userDestinations: [],
-        clicked: false
+        message: ""
     }
 
     handleChange = (destination) => {
         this.destinationSearch = destination;
     }
 
-    handleClick = () => {
-        this.setState({ clicked: true })
-    }
+    // handleClick = () => {
+    //     if(this.state.userDestinations.includes(this.destinationSearch)){
+    //         this.setState({ existentDestination: true })
+    //     }
+    // }
 
-    componentDidMount(){
+    /* componentDidMount(){
         fetch(`http://localhost:3000/users/4`)
         .then(response => response.json())
         .then(response => this.setState({userDestinations: response.destinations.map(dest => dest.name)}))
-    }
+    } */
 
     setDestination = () => {
         //this.setState({ tripTitle: this.state.destination })
         //console.log(this.destinationSearch)
-
-        fetch('http://localhost:3000/destinations', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                name: this.destinationSearch,
-                user_id: 4
-            })
-        }).then(response => response.json())
-        .then( response => this.setState({ destination: response.name, destination_id: response.id}))
+        //console.log(this.state.userDestinations.includes(this.destinationSearch))
+        fetch(`http://localhost:3000/users/4`)
+        .then(response => response.json())
+        .then(response => this.setIt(response))
     }
+
+    setIt = (response) => { 
+        let dests = response.destinations.map(dest => dest.name)
+
+            if(!dests.includes(this.destinationSearch)){
+                fetch('http://localhost:3000/destinations', {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name: this.destinationSearch,
+                        user_id: 4
+                    })
+                }).then(response => response.json())
+                .then( response => this.setState({ destination: response.name, destination_id: response.id }))    
+                } else {
+                    this.setState({ message: "destination exists"})
+                } 
+            } 
 
     //set state with book titles, pass state to BookDisplay
     handleSubmit = (e) => {
@@ -71,15 +84,14 @@ class Form extends React.Component {
                 <input type="text" placeholder="destination" name="destination" onChange={(e) => this.handleChange(e.target.value)} /><br/>
                 <button>Search for Books</button>
                 </form>
-                <button onClick={this.handleClick}>Create Trip</button>
-                {/* //label not showing because of this */}
-                {   this.state.clicked && this.state.userDestinations.includes(this.destinationSearch)
-                    ? 
-                    <DestinationDisplay />
+                <button onClick={this.setDestination}>Create Trip</button>
+                {
+                    this.state.message == "destination exists"
+                    ?
+                    <p>You already have a trip to this destination. Go to your Trips.</p>
                     :
-                    this.setDestination()
-                } 
-
+                    <div></div>
+                }
                 <BookDisplay bookTitles={this.state.books} destination_id={this.state.destination_id}
                 />
             </div>

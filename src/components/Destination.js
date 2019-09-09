@@ -12,6 +12,7 @@ class Destination extends React.Component {
         synopsis: "",
     }
     handleClick = (id) => {
+        console.log(id)
        fetch(`http://localhost:3000/destinations/${id}`)
        .then(response => response.json())
        .then(response => this.setState({ destBooks: response.books, clicked: true}))

@@ -23,13 +23,14 @@ class DestinationBook extends React.Component {
     render(){
         return(
             <div className="bookDiv" >
+                <button style={{ float:"right",marginRight:"50px"}}>Go Back</button>
                 <p style={{ width:'150px'}}>{this.props.title}</p>
                 <img src={this.props.image} alt="" />
                 <p onClick={this.handleClick}>Learn more</p>
+                <button onClick="">Delete</button>
                 { this.state.show
                 ? 
-                <div><p>{this.props.synopsis}</p>
-                <button onClick="">Delete</button></div>
+                <p>{this.props.synopsis}</p>
                 :
                 <div></div>
                 }

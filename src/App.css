@@ -56,3 +56,18 @@ li {
 p {
   font-size: 12px;
 }
+
+.signup {
+  margin: 20em auto;
+  text-align: center;
+}
+.signup input {
+  text-align: center;
+  line-height: 2.5em;
+  margin-top: 0.35em;
+  margin-bottom: 1em;
+}
+
+.signup label {
+  font-size: 0.85em;
+}

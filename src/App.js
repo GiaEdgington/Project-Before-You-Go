@@ -4,6 +4,7 @@ import './App.css';
 import Homepage from './Homepage';
 import DestinationDisplay from './containers/DestinationDisplay';
 import DestinationBook from './components/DestinationBook';
+import SignUp from './SignUp';
 
 
 class App extends React.Component {
@@ -26,6 +27,11 @@ class App extends React.Component {
             exact
             path="/myDestination/"
             render={(routerProps) => <DestinationBook {...routerProps} />}
+          />
+          <Route 
+            exact
+            path="/newUser"
+            render={(routerProps) => <SignUp {...routerProps} />}
           />
         </Switch>
       </BrowserRouter>
