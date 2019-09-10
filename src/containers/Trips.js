@@ -2,7 +2,7 @@ import React from 'react';
 import Destination from '../components/Destination'
 
 
-class DestinationDisplay extends React.Component {  //pass user ID here
+class Trips extends React.Component {  //pass user ID here
 
     state = {
         myDestinations: []
@@ -12,15 +12,6 @@ class DestinationDisplay extends React.Component {  //pass user ID here
         fetch('http://localhost:3000/users/4')
         .then(response => response.json())
         .then(response => {
-            //this code removes duplicates if needed
-            //
-            // let destinations = [];
-            // response.destinations.forEach(function(dest) {
-            //     if (!destinations.find(function (t) {
-            //         return dest.name === t.name;
-            //     })) { destinations.push(dest); }
-            // })
-            
             this.setState({ myDestinations: response.destinations});
         }) 
     }
@@ -40,4 +31,4 @@ class DestinationDisplay extends React.Component {  //pass user ID here
 }
 
 
-export default DestinationDisplay;
+export default Trips;

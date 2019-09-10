@@ -27,13 +27,6 @@ class Destination extends React.Component {
          })
      }
 
-   /*  destBook = () => {
-        let allDest = this.props.dest
-
-            console.log(this.state.dest_id)
-            //return <DestinationBook key={book.id} book={book}/>
-
-    } */
         render(){
             const getBooks= this.state.destBooks.map(book => {
                 return <DestinationBook key={book.id} book={book} 
@@ -45,7 +38,6 @@ class Destination extends React.Component {
                         synopsis={this.state.synopsis}
                 />
             })
-            
 
             return(
                 <div>

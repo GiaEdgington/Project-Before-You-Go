@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class SignIn extends React.Component {
+class RegisterForm extends React.Component {
     state = {
         username: "",
         password: ""
@@ -17,9 +17,21 @@ class SignIn extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault()
 
-        fetch('http://localhost:3000/users')
-        .then(response => response.json())
-        .then(console.log)
+        fetch("http://localhost:3000/signup", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accepts": "application/json"
+            },
+            body: JSON.stringify(this.state)
+          })
+          .then(res => res.json())
+          .then(userInfo => {
+            if (userInfo.token) {
+              localStorage.token = userInfo.token
+              this.props.redirect('homepage')
+            }
+          })
     }
 
     render(){
@@ -28,15 +40,15 @@ class SignIn extends React.Component {
 
             <div>
                 <form onSubmit={this.handleSubmit} className="signup">
-                    <label>Sign In</label><br/>
+                    <label>Register</label><br/>
                     <input type="text" placeholder="username" name="username" onChange={this.handleChange}></input><br/>
                     <input type="text" placeholder="password" name="password" onChange={this.handleChange}></input><br/>
                     <button>Submit</button>
-                    <p>or Sign in <Link to="/sign_in">here </Link></p>
+                    {/* <p>or Sign in <Link to="/sign_in">here </Link></p> */}
                 </form>
             </div>
         )
     }
 }
 
-export default SignIn;
+export default RegisterForm;

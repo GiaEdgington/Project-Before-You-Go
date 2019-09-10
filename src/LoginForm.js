@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class SignUp extends React.Component {
+class LoginForm extends React.Component {
     state = {
         username: "",
         password: ""
     }
+//pass handleLogin callback as props from parent component
 
     handleChange = (event) => {
         this.setState({ 
@@ -17,17 +18,21 @@ class SignUp extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault()
 
-        fetch('http://localhost:3000/users', {
-            method: 'POST',
+        fetch("http://localhost:3000/login", {
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+              "Content-Type": "application/json",
+              "Accepts": "application/json"
             },
-            body: JSON.stringify({
-                username: this.state.username,
-                password: this.state.password
-            })
-        }).then(response => response.json())
-        .then(console.log)
+            body: JSON.stringify(this.state)
+          })
+          .then(res => res.json())
+          .then(userInfo => {
+            if (userInfo.token) {
+              localStorage.token = userInfo.token
+              this.props.redirect('homepage')
+            }
+          })
     }
 
     render(){
@@ -36,15 +41,15 @@ class SignUp extends React.Component {
 
             <div>
                 <form onSubmit={this.handleSubmit} className="signup">
-                    <label>Create Account</label><br/>
+                    <label>Log In</label><br/>
                     <input type="text" placeholder="username" name="username" onChange={this.handleChange}></input><br/>
                     <input type="text" placeholder="password" name="password" onChange={this.handleChange}></input><br/>
                     <button>Submit</button>
-                    <p>or Sign in <Link to="/sign_in">here </Link></p>
+                    {/* <p>or Sign in <Link to="/sign_in">here </Link></p> */}
                 </form>
             </div>
         )
     }
 }
 
-export default SignUp;
+export default LoginForm;

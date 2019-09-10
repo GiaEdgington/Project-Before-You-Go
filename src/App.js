@@ -1,42 +1,42 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
+import LoginForm from './LoginForm';
+import RegisterForm from './RegisterForm';
 import Homepage from './Homepage';
-import DestinationDisplay from './containers/DestinationDisplay';
+import Trips from './containers/Trips';
 import DestinationBook from './components/DestinationBook';
-import SignUp from './SignUp';
 
 
 class App extends React.Component {
 
-  render(){
-    return(
-      <BrowserRouter>
-        <Switch>
-          <Route 
-            exact
-            path="/"
-            render={(routerProps) => < Homepage {...routerProps} />}
-          />
-          <Route 
-            exact
-            path="/myTrips"
-            render={(routerProps) => <DestinationDisplay {...routerProps} />}
-          />
-          <Route 
-            exact
-            path="/myDestination/"
-            render={(routerProps) => <DestinationBook {...routerProps} />}
-          />
-          <Route 
-            exact
-            path="/newUser"
-            render={(routerProps) => <SignUp {...routerProps} />}
-          />
-        </Switch>
-      </BrowserRouter>
-    )
+  state = {
+    page: 'signup'
+  }
+
+  redirect = (page) => {
+    this.setState({ page: page })
+  }
+
+  componentDidMount(){
+    if (localStorage.token) {
+      this.redirect('homepage')
+    }
+  }
+
+  render() {
+      switch(this.state.page){
+        case 'login':
+          return <LoginForm redirect={ this.redirect } />
+        case 'signup':
+          return <RegisterForm redirect={ this.redirect } />
+        case 'homepage':
+          return <Homepage />
+        default:
+            return <LoginForm />
+      }    
   }
 }
+
 
 export default App;

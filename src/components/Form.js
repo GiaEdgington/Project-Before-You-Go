@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import BookDisplay from '../containers/BookDisplay';
-import DestinationDisplay from '../containers/DestinationDisplay';
 
 class Form extends React.Component {
 
@@ -18,27 +17,14 @@ class Form extends React.Component {
         this.destinationSearch = destination;
     }
 
-    // handleClick = () => {
-    //     if(this.state.userDestinations.includes(this.destinationSearch)){
-    //         this.setState({ existentDestination: true })
-    //     }
-    // }
-
-    /* componentDidMount(){
-        fetch(`http://localhost:3000/users/4`)
-        .then(response => response.json())
-        .then(response => this.setState({userDestinations: response.destinations.map(dest => dest.name)}))
-    } */
-
+    //Fetch user
     setDestination = () => {
-        //this.setState({ tripTitle: this.state.destination })
-        //console.log(this.destinationSearch)
-        //console.log(this.state.userDestinations.includes(this.destinationSearch))
         fetch(`http://localhost:3000/users/4`)
         .then(response => response.json())
         .then(response => this.setIt(response))
     }
 
+    //get user's destinations and post new one
     setIt = (response) => { 
         let dests = response.destinations.map(dest => dest.name)
 
@@ -64,7 +50,6 @@ class Form extends React.Component {
         e.preventDefault()
         let destination = `Novels set in ${this.destinationSearch}`
 
-        //console.log(destination)
         fetch(encodeURI(`https://en.wikipedia.org/w/api.php?action=query&format=json&list=categorymembers&cmtitle=Category:${destination}&cmlimit=3&origin=*`))
         .then(response => response.json())
         .then(data => {
@@ -78,7 +63,7 @@ class Form extends React.Component {
     render(){
         return(
             <div>
-                <Link to = "/myTrips"><button style={{ float:"right",marginRight:'50px',marginTop:'20px'}}>My Trips</button></Link>
+                {/* <Link to = "/myTrips"><button style={{ float:"right",marginRight:'50px',marginTop:'20px'}}>My Trips</button></Link> */}
                 <form onSubmit={this.handleSubmit}>
                 <label>{this.state.destination}</label><br/>
                 <input type="text" placeholder="destination" name="destination" onChange={(e) => this.handleChange(e.target.value)} /><br/>
