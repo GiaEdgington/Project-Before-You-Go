@@ -9,21 +9,24 @@ class Trips extends React.Component {  //pass user ID here
     }
 
     componentDidMount(){
-        fetch('http://localhost:3000/users/4')
+        let user_id = this.props.id
+
+        fetch(`http://localhost:3000/users/${user_id}`)
         .then(response => response.json())
         .then(response => {
+            //console.log(response.destinations)
             this.setState({ myDestinations: response.destinations});
         }) 
     }
 
     render(){
-        //console.log(this.state.myTrips)
-        const userTrips = this.state.myDestinations.map(dest => {
+        //console.log(this.state.myDestinations)
+         const userTrips = this.state.myDestinations.map(dest => {
             return <Destination key={dest.id} dest={dest}/>
-        })
+         })
         return(
             <div>
-                <h1>My Trips</h1>
+                <h3 style= {{ marginLeft:'5em', marginTop:'5em' }}>My Trips</h3>
                 {userTrips}
             </div>
         )

@@ -1,5 +1,6 @@
 import React from 'react';
 import DestinationBook from './DestinationBook';
+import { Link } from 'react-router-dom';
 
 class Destination extends React.Component {
 
@@ -9,10 +10,10 @@ class Destination extends React.Component {
         title: "",
         author: "",
         image: "",
-        synopsis: "",
+        synopsis: ""
     }
     handleClick = (id) => {
-        console.log(id)
+        //console.log(id)
        fetch(`http://localhost:3000/destinations/${id}`)
        .then(response => response.json())
        .then(response => this.setState({ destBooks: response.books, clicked: true}))
@@ -28,6 +29,7 @@ class Destination extends React.Component {
      }
 
         render(){
+            //if destination has no books add message
             const getBooks= this.state.destBooks.map(book => {
                 return <DestinationBook key={book.id} book={book} 
                         dest={this.props.dest} 
@@ -41,18 +43,19 @@ class Destination extends React.Component {
 
             return(
                 <div>
-                    <h4 onClick={() => this.handleClick(this.props.dest.id)}>{this.props.dest.name}</h4>
-                    
-                    { this.state.clicked
-                    ? 
-                    getBooks
-                    :
-                    <div></div>
-                    } 
+                    <div className="myDestinations" onClick={() => this.handleClick(this.props.dest.id)}>
+                    <h4 style={{ marginLeft:'2em'}}>{this.props.dest.name}</h4>
+                    <Link className='link' to="/">Find more books</Link>
+                        { this.state.clicked
+                        ? 
+                        getBooks
+                        :
+                        <div></div>
+                        } 
+                    </div>
                 </div>
             )
         }
     }
-//<Link to="/bookInfo"><p>Learn more</p></Link>
 
 export default Destination;

@@ -16,16 +16,24 @@ class Book extends React.Component {
 
     //fetch book info, saves details on state
     //need to get function out of componentDidMount
+    //condition results without keys... IMPORTANT
+    //IMPORTANT: Make synopsis shorter?
     componentDidMount() {
         let key2 = 'AIzaSyCUZDVxJS93fWmpk3QKfscn15qz7segx-4'
 
         fetch(`https://www.googleapis.com/books/v1/volumes?q=+title:${this.props.book}&maxResults=1&key=${key2}`)
         .then(response => response.json())
         .then(response => {
-            this.setState({ title: response.items[0].volumeInfo.title,
-                            authors: response.items[0].volumeInfo.authors,
-                            image: response.items[0].volumeInfo.imageLinks.smallThumbnail,
-                            synopsis: response.items[0].volumeInfo.description })
+
+            let title = typeof response.items[0].volumeInfo.title == "undefined" ? "" : response.items[0].volumeInfo.title;
+            let authors = typeof response.items[0].volumeInfo.authors == "undefined" ? "" : response.items[0].volumeInfo.authors;
+            let image = typeof response.items[0].volumeInfo.imageLinks == "undefined" ? "" : response.items[0].volumeInfo.imageLinks.smallThumbnail;
+            let synopsis = typeof response.items[0].volumeInfo.description == "undefined" ? "" : response.items[0].volumeInfo.description;
+
+            this.setState({ title: title,
+                            authors: authors,
+                            image: image,
+                            synopsis: synopsis })
         })
     }
 
@@ -40,7 +48,6 @@ class Book extends React.Component {
     //need to address books without info: image or description
     //was passing before title from destination state
     //review fetches
-    //user cant add until logged in
     //find if destination already exists
     addBook = () => {
         //let travel = destination;
@@ -63,20 +70,20 @@ class Book extends React.Component {
         .then(console.log)  
 
 
-        //})
+        //what here?})
     }
     
     render(){
-
+        //Show book has been added to trip "trip name"
         return (
-            <div className="bookDiv" >
-                <p style={{ width:'150px'}}>{this.state.title}</p>
+            <div className="flex-item" >
+                {/* <p style={{ width:'150px'}}>{this.state.title}</p> */}
                 <img src={this.state.image} alt="" />
                 <p onClick={this.handleClick}>Learn more</p>
+                <button className="tripButton" onClick={this.addBook}>Add to your Trip</button>
                 { this.state.show
                 ? 
-                <div><p>{this.state.synopsis}</p>
-                <button onClick={this.addBook}>Add to your Trip</button></div>
+                <div className="synopsis"><p>{this.state.synopsis}</p></div>
                 :
                 <div></div>
                 }

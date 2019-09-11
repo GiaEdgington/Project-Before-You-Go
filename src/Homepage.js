@@ -1,29 +1,27 @@
 import React from 'react';
 import Form from './components/Form';
+import { Link } from 'react-router-dom';
 
 class Homepage extends React.Component {
 
-    state = {
-        username: ""
+    signOut = () => {
+        localStorage.clear();
+        //needs props history to /
+        this.props.history.push('/login');
     }
-
-    componentDidMount(){
-        fetch('http://localhost:3000/homepage', {
-            headers: {
-                Authorization: localStorage.token
-            }
-        })
-        .then(res => res.json())
-        .then(profileData => {
-           this.setState({ username: profileData.username})
-        })
-    }
- 
+    
+    //have to add Link to My Trips, reroute to Trips
     render(){
+        //console.log(this.props)
         return(
             <div>
-                <p>Welcome, {this.state.username}.</p>
-                <Form />
+                
+                <div style={{ float:"right",marginRight:"7em"}}>
+                <Link to = "/myTrips"><button className="buttonPage" style={{ marginRight:'5px'}}>My Trips</button></Link>
+                <button className="buttonPage" onClick={this.signOut}>Sign out</button>
+                <p>Welcome, {this.props.username}.</p>
+                </div>
+                <Form id={ this.props.id }/>
             </div>
         )
     }
