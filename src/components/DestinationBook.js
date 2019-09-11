@@ -22,19 +22,21 @@ class DestinationBook extends React.Component {
        
     render(){
         return(
-            <div className="bookDiv" >
-                <button style={{ float:"right",marginRight:"50px"}}>Go Back</button>
-                <p style={{ width:'150px'}}>{this.props.title}</p>
-                <img src={this.props.image} alt="" />
-                <p onClick={this.handleClick}>Learn more</p>
-                <button onClick="">Delete</button>
+            <div className="bookList">
+                <div className="flex-item" >
+                
+                {/* <p style={{ width:'150px'}}>{this.props.title}</p> */}
+                <img style={{ width:'130px'}} src={this.props.image} alt="" />
+                <p style={{ marginBottom:'auto'}} onClick={this.handleClick}>Learn more</p>
+                <div><button style={{ marginRight:'2px'}} onClick="">Remove</button><button onClick="">Buy</button></div>
                 { this.state.show
                 ? 
                 <p>{this.props.synopsis}</p>
                 :
                 <div></div>
                 }
-            </div>
+                </div>
+        </div>
         )
     }
 }

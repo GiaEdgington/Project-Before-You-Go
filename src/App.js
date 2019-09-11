@@ -1,17 +1,18 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 import Homepage from './Homepage';
 import Trips from './containers/Trips';
-import DestinationBook from './components/DestinationBook';
+import Destination from './components/Destination';
 
 
 class App extends React.Component {
 
   state = {
-    page: 'signup'
+    username: 'login',
+    id: null
   }
 
   redirect = (page) => {
@@ -19,22 +20,57 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    if (localStorage.token) {
-      this.redirect('homepage')
+    if (localStorage.token) {    
+        fetch('http://localhost:3000/homepage', {
+            headers: {
+                Authorization: localStorage.token
+            }
+        })
+        .then(res => res.json())
+        .then(profileData => {
+           this.setState({ username: profileData.username, id: profileData.id })
+        })
     }
   }
 
   render() {
-      switch(this.state.page){
+
+    return(
+      <Switch>
+
+        <Route
+          exact 
+          path='/' 
+          render ={(routerProps)=> <Homepage {...routerProps } username={this.state.username} id={this.state.id}/>} 
+          />
+          <Route 
+          exact 
+          path='/myTrips' 
+          render ={(routerProps)=> <Trips {...routerProps } username={this.state.username} id={this.state.id}/>} 
+          />
+          <Route exact 
+          path='/destinations' 
+          render ={(routerProps)=> <Destination {...routerProps } username={this.state.username} id={this.state.id}/>} 
+          />
+        <Route path='/login' component={ LoginForm } />
+        <Route path='/signup' component={ RegisterForm }/>
+
+
+
+      </Switch>
+    )
+/*       switch(this.state.page){
         case 'login':
           return <LoginForm redirect={ this.redirect } />
         case 'signup':
           return <RegisterForm redirect={ this.redirect } />
         case 'homepage':
+
+        //pass props history to Homepage
           return <Homepage />
         default:
             return <LoginForm />
-      }    
+      } */    
   }
 }
 
