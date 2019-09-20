@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class RegisterForm extends React.Component {
     state = {
@@ -29,7 +28,7 @@ class RegisterForm extends React.Component {
           .then(userInfo => {
             if (userInfo.token) {
               localStorage.token = userInfo.token
-              this.props.redirect('homepage')
+              this.props.history.push('/')
             }
           })
     }

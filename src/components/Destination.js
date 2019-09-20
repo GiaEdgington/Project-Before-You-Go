@@ -6,12 +6,9 @@ class Destination extends React.Component {
 
     state={
         destBooks: [],
-        clicked: false,
-        title: "",
-        author: "",
-        image: "",
-        synopsis: ""
+        clicked: false
     }
+
     handleClick = (id) => {
         //console.log(id)
        fetch(`http://localhost:3000/destinations/${id}`)
@@ -19,43 +16,43 @@ class Destination extends React.Component {
        .then(response => this.setState({ destBooks: response.books, clicked: true}))
     }
 
-    showBooks = (response) => {
-        this.setState({ 
-            title:response.books[0].title, 
-            authors:response.books[0].author, 
-            image:response.books[0].image,
-            synopsis: response.books[0].synopsis
-         })
-     }
-
-        render(){
-            //if destination has no books add message
-            const getBooks= this.state.destBooks.map(book => {
-                return <DestinationBook key={book.id} book={book} 
-                        dest={this.props.dest} 
-                        showBooks={this.showBooks}
-                        title={this.state.title}
-                        author={this.state.author}
-                        image={this.state.image}
-                        synopsis={this.state.synopsis}
-                />
-            })
-
-            return(
-                <div>
-                    <div className="myDestinations" onClick={() => this.handleClick(this.props.dest.id)}>
-                    <h4 style={{ marginLeft:'2em'}}>{this.props.dest.name}</h4>
-                    <Link className='link' to="/">Find more books</Link>
-                        { this.state.clicked
-                        ? 
-                        getBooks
-                        :
-                        <div></div>
-                        } 
-                    </div>
-                </div>
-            )
-        }
+    deleteBook = (id) => {
+        fetch(`http://localhost:3000/books/${id}`, {
+            method: 'DELETE'
+        }).then(response => response.json())
+        .then((response) => {
+            //console.log(response)
+            //this.setState({ deleted: true})
+            this.handleClick(this.props.dest.id)
+        })
     }
+
+    render(){
+        //if destination has no books add message
+        //state not updated when rerenders
+        const getBooks= this.state.destBooks.map(book => {
+            return <DestinationBook key={book.id} book={book} dest={this.props.dest} deleteBook={this.deleteBook}
+            />
+        })
+
+        return(
+            <div>
+                <div className="myDestinations" onClick={() => this.handleClick(this.props.dest.id)}>
+                <h4 className="tripTitle">{this.props.dest.name}</h4>
+                <Link className='link' to="/homepage">Go Back</Link>
+                <button onClick={ () => this.props.removeTrip(this.props.dest.id ) } className="delTrip">Delete Trip</button>
+                    { this.state.clicked
+                    ?
+                    <div className="bookList">
+                    {getBooks}
+                    </div>
+                    :
+                    <div></div>
+                    } 
+                </div>
+            </div>
+        )
+    }
+}
 
 export default Destination;

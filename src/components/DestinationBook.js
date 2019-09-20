@@ -4,37 +4,29 @@ import React from 'react';
 class DestinationBook extends React.Component {
 
     state={
-        show: false
+        show: false,
+        deleted: false
     }
 
     handleClick = () => {
         this.setState({ show: true })
-    }
-
-    //need to save book image -- modify books table
-    //fetch user books
-
-    componentDidMount(){
-        fetch(`http://localhost:3000/destinations/${this.props.dest.id}`)
-       .then(response => response.json())
-       .then(response => this.props.showBooks(response)) 
     }
        
     render(){
         return(
             <div className="bookList">
                 <div className="flex-item" >
-                
-                {/* <p style={{ width:'150px'}}>{this.props.title}</p> */}
-                <img style={{ width:'130px'}} src={this.props.image} alt="" />
-                <p style={{ marginBottom:'auto'}} onClick={this.handleClick}>Learn more</p>
-                <div><button style={{ marginRight:'2px'}} onClick="">Remove</button><button onClick="">Buy</button></div>
-                { this.state.show
-                ? 
-                <p>{this.props.synopsis}</p>
-                :
-                <div></div>
-                }
+                    <img style={{ width:'130px'}} src={this.props.book.image} alt="" />
+                    <div>
+                        <button onClick={this.handleClick} className="remButton">More</button>
+                        <button className="remButton" onClick={() => this.props.deleteBook(this.props.book.id)}>Remove</button>
+                    </div>
+                    { this.state.show
+                    ? 
+                    <p className="synopsis">{this.props.book.synopsis}</p>
+                    :
+                    <div></div>
+                    }
                 </div>
         </div>
         )
