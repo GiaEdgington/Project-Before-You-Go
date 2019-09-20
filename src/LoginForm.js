@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class LoginForm extends React.Component {
     state = {
@@ -29,23 +28,26 @@ class LoginForm extends React.Component {
           .then(res => res.json())
           .then(userInfo => {
             if (userInfo.token) {
-              localStorage.token = userInfo.token
-              this.props.history.push('/')
+                console.log(userInfo)
+                localStorage.token = userInfo.token
+                this.props.updateUserInfo(userInfo.username, userInfo.id)
+                this.props.history.push('/homepage')
+            }
+            else {
+                this.props.history.push('/signup')
             }
           })
     }
 
     render(){
-        //console.log(this.state.username)
         return (
-
-            <div>
+            <div className='hello'>
                 <form onSubmit={this.handleSubmit} className="signup">
-                    <label>Log In</label><br/>
-                    <input type="text" placeholder="username" name="username" onChange={this.handleChange}></input><br/>
-                    <input type="text" placeholder="password" name="password" onChange={this.handleChange}></input><br/>
-                    <button className="buttonPage">  Submit</button>
-                    {/* <p>or Sign in <Link to="/sign_in">here </Link></p> */}
+                        <label>Log In</label><br/>
+                        <input type="text" placeholder="username" name="username" onChange={this.handleChange}></input><br/>
+                        <input type="password" placeholder="password" name="password" onChange={this.handleChange}></input><br/>
+                        <button className="buttonPage">  Submit</button>
+                        {/* <p>or Sign in <Link to="/sign_in">here </Link></p> */}
                 </form>
             </div>
         )

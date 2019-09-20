@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 class Book extends React.Component {
     state = {
         title: "",
@@ -8,20 +7,16 @@ class Book extends React.Component {
         image: "",
         synopsis: "",
         show: false,
+        added: false
     }
-    //console.log(props)
-    //const key = 'AIzaSyCH0tIhWJCGZf1HFjw_hRFlJ0vlNuLVtf8'
-    
-    descriptionholder = "";
 
-    //fetch book info, saves details on state
-    //need to get function out of componentDidMount
-    //condition results without keys... IMPORTANT
-    //IMPORTANT: Make synopsis shorter?
+    //fetch for book info, saves details on state
     componentDidMount() {
-        let key2 = 'AIzaSyCUZDVxJS93fWmpk3QKfscn15qz7segx-4'
 
-        fetch(`https://www.googleapis.com/books/v1/volumes?q=+title:${this.props.book}&maxResults=1&key=${key2}`)
+        const key2 = 'AIzaSyCUZDVxJS93fWmpk3QKfscn15qz7segx-4'
+        const key1 = 'AIzaSyCH0tIhWJCGZf1HFjw_hRFlJ0vlNuLVtf8'
+
+        fetch(`https://www.googleapis.com/books/v1/volumes?q=+title:${this.props.book}&maxResults=1&key=${key1}`)
         .then(response => response.json())
         .then(response => {
 
@@ -33,7 +28,9 @@ class Book extends React.Component {
             this.setState({ title: title,
                             authors: authors,
                             image: image,
-                            synopsis: synopsis })
+                            synopsis: synopsis,
+                            finished: true
+                         })
         })
     }
 
@@ -43,15 +40,8 @@ class Book extends React.Component {
     }
 
     //saves book
-    //add image to saved book
-    //review last then(console.log)
-    //need to address books without info: image or description
-    //was passing before title from destination state
-    //review fetches
     //find if destination already exists
     addBook = () => {
-        //let travel = destination;
-        //console.log(this.props.destination)
 
         fetch('http://localhost:3000/books', {
             method: 'POST',
@@ -67,20 +57,33 @@ class Book extends React.Component {
                 destination_id: this.props.destination_id
             })
         }).then(response => response.json())
-        .then(console.log)  
+        .then(() => {
+            //should look at response and confirm trip was added. this is temporary
+            this.setState({added: true})
+        }) 
 
-
-        //what here?})
     }
     
     render(){
-        //Show book has been added to trip "trip name"
+        //console.log(this.props)
         return (
             <div className="flex-item" >
                 {/* <p style={{ width:'150px'}}>{this.state.title}</p> */}
                 <img src={this.state.image} alt="" />
-                <p onClick={this.handleClick}>Learn more</p>
-                <button className="tripButton" onClick={this.addBook}>Add to your Trip</button>
+                <button onClick={this.handleClick} className="buttonPage">Learn more</button>
+                { this.props.destination_id && !this.state.added
+                ?
+                <button className="buttonPage" onClick={this.addBook}>Add Book</button>
+                :
+                <div>
+                    { this.state.added
+                    ?
+                    <p>Book has been added!</p>
+                    :
+                    <div></div>
+                    }
+                </div>
+                }
                 { this.state.show
                 ? 
                 <div className="synopsis"><p>{this.state.synopsis}</p></div>

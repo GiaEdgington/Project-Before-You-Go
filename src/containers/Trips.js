@@ -5,29 +5,50 @@ import Destination from '../components/Destination'
 class Trips extends React.Component {  //pass user ID here
 
     state = {
-        myDestinations: []
+        myDestinations: [],
     }
 
     componentDidMount(){
-        let user_id = this.props.id
 
-        fetch(`http://localhost:3000/users/${user_id}`)
-        .then(response => response.json())
-        .then(response => {
-            //console.log(response.destinations)
-            this.setState({ myDestinations: response.destinations});
-        }) 
+        this.props.setUser().then(response => {
+            this.setDestinations(response.id).then(destinationData => {
+                this.setState({ myDestinations: destinationData.destinations, user_id: response.id})
+            })
+        })
     }
 
+    setDestinations = async (id) => {
+
+        let resp = await fetch(`http://localhost:3000/users/${id}`)
+        let data = await resp.json()
+        return data
+    }
+
+    removeTrip = (id) => {
+
+        fetch(`http://localhost:3000/destinations/${id}`, {
+            method:'DELETE'
+        })
+        .then(res => res.json())
+        .then(() => {
+            this.componentDidMount();
+        })
+     }
+
     render(){
-        //console.log(this.state.myDestinations)
-         const userTrips = this.state.myDestinations.map(dest => {
-            return <Destination key={dest.id} dest={dest}/>
-         })
+
+        const userTrips = () => {
+            if (this.state.myDestinations) {
+                return this.state.myDestinations.map(dest => {
+                    return <Destination key={dest.id} dest={dest} removeTrip={this.removeTrip} />
+                })
+            }
+        }
         return(
-            <div>
-                <h3 style= {{ marginLeft:'5em', marginTop:'5em' }}>My Trips</h3>
-                {userTrips}
+            <div className="tripStyle">
+                <h3 className="tripClass">My Trips</h3>
+                <hr></hr>
+                {userTrips()}
             </div>
         )
     }

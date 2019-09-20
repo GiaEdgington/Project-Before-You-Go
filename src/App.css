@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+
 .App {
   text-align: center;
 }
@@ -60,14 +63,24 @@ li {
 .searchContainer form input {
   width: 15em;
   line-height: 2em;
-  margin-bottom: .75em;
+  margin-bottom: 0;
 }
 
 .buttonPage {
+  width:auto;
+  margin-right: 0.15em;
+  margin-top: 0.5em;
   line-height: 1.7em;
-  margin-bottom: .5em;
+  margin-bottom: 0.3em;
   font-size: .7em;
 }
+
+/* .tripButton {
+  width: auto;
+  line-height: 2em;
+  font-size: 0.5em;
+  margin-top: -.15em;
+} */
 
 .flex-item {
   width: 200px;
@@ -78,15 +91,29 @@ li {
 .synopsis {
   width: 150px;
   height: 250px;
-  overflow: hidden;
+  overflow:scroll;
   padding: 0 2px;
+
 }
 
-.tripButton {
-  width: auto;
-  line-height: 2em;
-  font-size: 0.5em;
-  margin-top: auto;
+::-webkit-scrollbar { 
+  display: none; 
+}
+
+
+.remButton {
+  margin-top: .25em;
+  margin-right: 3px;
+  line-height: 1.9em;
+  font-size: .7em;
+}
+
+.delTrip {
+  float:right;
+  margin-bottom:0;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.9em;
+  font-size: .7em;
 }
 
 p {
@@ -94,14 +121,17 @@ p {
 }
 
 .link {
-  font-size: .75em;
+  font-family: 'Roboto', sans-serif;
+  line-height: 2em;
+  color: white;
   float:right;
   margin-top: -4em;
-  margin-right: 1em;
+  margin-right: 0.5em;
   text-decoration: none;
 }
 
 .signup {
+  z-index: 10;
   margin: 20em auto;
   text-align: center;
 }
@@ -119,10 +149,71 @@ p {
 
 .myDestinations {
   width: 70%;
-  border: 1px black solid;
+  border: 1px #c4bc9f;
   margin: 5em auto 2em;
   height:auto;
   overflow: hidden;
 }
+
+.myDestinations h4 {
+  font-family: 'Roboto', sans-serif;
+  color:white;
+  background-color:#c4bc9f;
+  padding:2em;
+}
+
+.tripClass {
+  background: #f3ecd2;
+  font-family: 'Roboto', sans-serif;
+  margin-left: 13em;
+  margin-top: 3em;
+}
+
+.intro {
+  height: 100vh;
+  min-height: 100vh;
+  background-image:url('./images/intro2.jpg');
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+.loginIntro {
+  width: 10em;
+  float:right;
+  margin-right: 0;
+  color:black;
+  padding: 0.25em 0.35em;
+  font-size: 1.15em;
+  background-color:white;
+  text-decoration: none;
+}
+
+.hello {
+  background: #f3ecd2;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+}
+
+.homepage {
+  background: #f3ecd2;
+  background-image:url('https://rfclipart.com/image/big/40-7f-13/gray-background-made-of-books-Download-Royalty-free-Vector-File-EPS-162959.jpg');
+  opacity: 0.20;
+  height: 100%;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.tripStyle {
+  background: #f2efe5;
+  position:absolute;
+  height: 100%;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.listClass {
+  font-family: 'Roboto', sans-serif;
+}
+
 
 
