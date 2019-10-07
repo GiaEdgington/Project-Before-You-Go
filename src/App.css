@@ -170,22 +170,44 @@ p {
 }
 
 .intro {
-  height: 100vh;
   min-height: 100vh;
-  background-image:url('./images/intro2.jpg');
+  background-size: 100%;
+  background-position: 50%;
+  background-image:url('./images/intro.jpg');
   background-size:cover;
   background-repeat:no-repeat;
 }
+
 .loginIntro {
-  width: 10em;
-  float:right;
-  margin-right: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 0.9em;
+  width: 100px;
+  margin-left: -50px;
+  margin-top: 1em;
+  text-align:center;
+  font-family: 'Roboto', sans-serif;
+  background-color:#ebd76b;
+  color: black;
+  text-decoration: none;
+  padding: .5em .1em;
+  border-radius: 10px;
+  /* margin-top: 1em;
+  padding: 4em;
+  background-color: #ebd76b;
+  border: 1px red solid;
   color:black;
-  padding: 0.25em 0.35em;
-  font-size: 1.15em;
+  padding: 0;
+  font-size: 1em;
   background-color:white;
   text-decoration: none;
+  font-weight: bolder;
+  font-style: italic; */
 }
+/* .loginIntro li {
+  text-align:center;
+}  */
 
 .hello {
   background: #f3ecd2;
