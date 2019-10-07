@@ -8,6 +8,7 @@ class Intro extends React.Component {
             <div className="intro">
                 <div>
                 <Link to='./login' className="loginIntro">Sign in</Link>
+                <p className="register">Or register <Link to='./signup'>here</Link></p>
                 </div>
                 
             </div>

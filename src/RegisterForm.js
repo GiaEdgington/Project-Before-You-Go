@@ -28,7 +28,7 @@ class RegisterForm extends React.Component {
           .then(userInfo => {
             if (userInfo.token) {
               localStorage.token = userInfo.token
-              this.props.history.push('/')
+              this.props.history.push('/homepage')
             }
           })
     }
@@ -39,11 +39,10 @@ class RegisterForm extends React.Component {
 
             <div>
                 <form onSubmit={this.handleSubmit} className="signup">
-                    <label>Register</label><br/>
+                    <label>Sign up</label><br/>
                     <input type="text" placeholder="username" name="username" onChange={this.handleChange}></input><br/>
                     <input type="text" placeholder="password" name="password" onChange={this.handleChange}></input><br/>
                     <button>Submit</button>
-                    {/* <p>or Sign in <Link to="/sign_in">here </Link></p> */}
                 </form>
             </div>
         )

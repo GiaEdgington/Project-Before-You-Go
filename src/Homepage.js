@@ -7,7 +7,7 @@ class Homepage extends React.Component {
     signOut = () => {
         localStorage.clear();
         //needs props history to /
-        this.props.history.push('/login');
+        this.props.history.push('/');
     }
 
     render(){
