@@ -1,6 +1,6 @@
 import React from 'react';
 import DestinationBook from './DestinationBook';
-import { Link } from 'react-router-dom';
+
 
 class Destination extends React.Component {
 
@@ -37,7 +37,6 @@ class Destination extends React.Component {
 
         return(
             <div>
-                <Link className='link' to="/homepage">Go Back</Link>
                 <section className="myDestinations">
                     <details onToggle= {() => this.handleToggle(this.props.dest.id)}>
                     <summary className="tripTitle">{this.props.dest.name}</summary>

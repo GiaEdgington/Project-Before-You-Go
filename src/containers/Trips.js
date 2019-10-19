@@ -1,5 +1,6 @@
 import React from 'react';
-import Destination from '../components/Destination'
+import Destination from '../components/Destination';
+import { Link } from 'react-router-dom';
 
 
 class Trips extends React.Component {  //pass user ID here
@@ -45,8 +46,12 @@ class Trips extends React.Component {  //pass user ID here
             }
         }
         return(
-            <div className="tripStyle">
-                <h3 className="tripClass">My Trips</h3>
+            <div className="tripStyle"> 
+                <div className="tripClass">
+                    <Link className='link' to="/homepage">Go Back</Link>
+                    <h3 >My Trips</h3>
+                </div>
+                
                 <hr></hr>
                 {userTrips()}
             </div>

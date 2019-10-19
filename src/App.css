@@ -75,12 +75,10 @@ li {
   font-size: .7em;
 }
 
-/* .tripButton {
-  width: auto;
-  line-height: 2em;
-  font-size: 0.5em;
-  margin-top: -.15em;
-} */
+.tripTitle {
+  outline: none;
+  margin-bottom: 2em;
+}
 
 .flex-item {
   width: 200px;
@@ -124,9 +122,8 @@ p {
   font-family: 'Roboto', sans-serif;
   line-height: 2em;
   color: black;
-  float:right;
-  margin-top: -7em;
-  margin-right: 2em;
+  float: right;
+  margin-right: 7em;
   text-decoration: none;
 }
 
@@ -149,17 +146,11 @@ p {
 
 .myDestinations {
   width: 70%;
-  border: 1px #c4bc9f;
+  background-color: #d6d0ba;
+  padding: .7em;
   margin: 5em auto 2em;
-  height:auto;
+  height: 100%;
   overflow: hidden;
-}
-
-.myDestinations h4 {
-  font-family: 'Roboto', sans-serif;
-  color:white;
-  background-color:#c4bc9f;
-  padding:2em;
 }
 
 .tripClass {
@@ -218,9 +209,8 @@ p {
 }
 
 .tripStyle {
-  background: #f2efe5;
-  position:absolute;
-  height: 100%;
+  background-color: #f2efe5;
+  position: absolute;
   min-height: 100vh;
   width: 100vw;
 }
