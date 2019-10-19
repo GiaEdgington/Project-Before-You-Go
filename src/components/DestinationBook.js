@@ -14,7 +14,7 @@ class DestinationBook extends React.Component {
        
     render(){
         return(
-            <div className="bookList">
+            <div>
                 <div className="flex-item" >
                     <img style={{ width:'130px'}} src={this.props.book.image} alt="" />
                     <div>

@@ -58,6 +58,7 @@ class Form extends React.Component {
     //after search, set state with book titles, pass state to BookDisplay
     handleSubmit = (e) => {
         e.preventDefault()
+        //console.log(this.destinationSearch);
         let destination = `Novels set in ${this.destinationSearch}`
 
         fetch(encodeURI(`https://en.wikipedia.org/w/api.php?action=query&format=json&list=categorymembers&cmtitle=Category:${destination}&cmlimit=18&origin=*`))
@@ -65,12 +66,12 @@ class Form extends React.Component {
         .then(data => {
             let books = [];
             data.query.categorymembers.forEach(book => { books.push(book.title)})
-
             this.setState({ books: books, notFound: books.length })
         })
     }
 
     render(){
+        //console.log(this.state.books)
         return(
             <div className="searchContainer">
                 <form onSubmit={this.handleSubmit} >

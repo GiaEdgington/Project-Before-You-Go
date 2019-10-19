@@ -6,14 +6,16 @@ class Destination extends React.Component {
 
     state={
         destBooks: [],
-        clicked: false
+        isHidden: true
     }
 
-    handleClick = (id) => {
+    handleToggle= (id) => {
         //console.log(id)
        fetch(`http://localhost:3000/destinations/${id}`)
        .then(response => response.json())
-       .then(response => this.setState({ destBooks: response.books, clicked: true}))
+       .then(response => {
+           this.setState({ destBooks: response.books, isHidden: !this.state.isHidden})
+        })
     }
 
     deleteBook = (id) => {
@@ -21,8 +23,6 @@ class Destination extends React.Component {
             method: 'DELETE'
         }).then(response => response.json())
         .then((response) => {
-            //console.log(response)
-            //this.setState({ deleted: true})
             this.handleClick(this.props.dest.id)
         })
     }
@@ -37,11 +37,13 @@ class Destination extends React.Component {
 
         return(
             <div>
-                <div className="myDestinations" onClick={() => this.handleClick(this.props.dest.id)}>
-                <h4 className="tripTitle">{this.props.dest.name}</h4>
                 <Link className='link' to="/homepage">Go Back</Link>
+                <section className="myDestinations">
+                    <details onToggle= {() => this.handleToggle(this.props.dest.id)}>
+                    <summary className="tripTitle">{this.props.dest.name}</summary>
+                    </details>
                 <button onClick={ () => this.props.removeTrip(this.props.dest.id ) } className="delTrip">Delete Trip</button>
-                    { this.state.clicked
+                    { !this.state.isHidden
                     ?
                     <div className="bookList">
                     {getBooks}
@@ -49,7 +51,7 @@ class Destination extends React.Component {
                     :
                     <div></div>
                     } 
-                </div>
+                </section>
             </div>
         )
     }

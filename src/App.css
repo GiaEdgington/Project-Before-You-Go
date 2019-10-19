@@ -123,10 +123,10 @@ p {
 .link {
   font-family: 'Roboto', sans-serif;
   line-height: 2em;
-  color: white;
+  color: black;
   float:right;
-  margin-top: -4em;
-  margin-right: 0.5em;
+  margin-top: -7em;
+  margin-right: 2em;
   text-decoration: none;
 }
 
@@ -163,9 +163,8 @@ p {
 }
 
 .tripClass {
-  background: #f3ecd2;
   font-family: 'Roboto', sans-serif;
-  margin-left: 13em;
+  margin-left: 9em;
   margin-top: 3em;
 }
 

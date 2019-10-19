@@ -7,19 +7,23 @@ class Book extends React.Component {
         image: "",
         synopsis: "",
         show: false,
-        added: false
+        added: false,
+        destination: ''
     }
 
-    //fetch for book info, saves details on state
     componentDidMount() {
+        this.fetchBooks();
+    }
 
-        const key2 = 'AIzaSyCUZDVxJS93fWmpk3QKfscn15qz7segx-4'
-        const key1 = 'AIzaSyCH0tIhWJCGZf1HFjw_hRFlJ0vlNuLVtf8'
+    //fetch for book info, update state
+
+    fetchBooks = () => {
+        const key2 = 'AIzaSyCUZDVxJS93fWmpk3QKfscn15qz7segx-4';
+        const key1 = 'AIzaSyCH0tIhWJCGZf1HFjw_hRFlJ0vlNuLVtf8';
 
         fetch(`https://www.googleapis.com/books/v1/volumes?q=+title:${this.props.book}&maxResults=1&key=${key1}`)
         .then(response => response.json())
         .then(response => {
-
             let title = typeof response.items[0].volumeInfo.title == "undefined" ? "" : response.items[0].volumeInfo.title;
             let authors = typeof response.items[0].volumeInfo.authors == "undefined" ? "" : response.items[0].volumeInfo.authors;
             let image = typeof response.items[0].volumeInfo.imageLinks == "undefined" ? "" : response.items[0].volumeInfo.imageLinks.smallThumbnail;
@@ -30,14 +34,15 @@ class Book extends React.Component {
                             image: image,
                             synopsis: synopsis,
                             finished: true
-                         })
-        })
-    }
+                         });
+        });
+    };
+
 
     //set state show to true, for details on book
     handleClick = () => {
         this.setState({ show: true})
-    }
+    };
 
     //saves book
     //find if destination already exists
@@ -60,12 +65,12 @@ class Book extends React.Component {
         .then(() => {
             //should look at response and confirm trip was added. this is temporary
             this.setState({added: true})
-        }) 
+        });  
 
-    }
-    
+    };
+
     render(){
-        //console.log(this.props)
+        console.log(this.props.book)
         return (
             <div className="flex-item" >
                 {/* <p style={{ width:'150px'}}>{this.state.title}</p> */}
