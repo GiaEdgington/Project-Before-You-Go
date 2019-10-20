@@ -37,8 +37,7 @@ class Book extends React.Component {
         });
     };
 
-
-    //set state show to true, for details on book
+    //book details
     handleClick = () => {
         this.setState({ isHidden: !this.state.isHidden})
     };
@@ -69,7 +68,6 @@ class Book extends React.Component {
     };
 
     render(){
-        //console.log(this.props.book)
         return (
             <div className="flex-item" >
                 { this.state.image == "" 

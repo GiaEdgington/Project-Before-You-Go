@@ -6,11 +6,10 @@ import { Link } from 'react-router-dom';
 class Trips extends React.Component {  //pass user ID here
 
     state = {
-        myDestinations: [],
+        myDestinations: []
     }
 
     componentDidMount(){
-
         this.props.setUser().then(response => {
             this.setDestinations(response.id).then(destinationData => {
                 this.setState({ myDestinations: destinationData.destinations, user_id: response.id})
@@ -19,7 +18,6 @@ class Trips extends React.Component {  //pass user ID here
     }
 
     setDestinations = async (id) => {
-
         let resp = await fetch(`http://localhost:3000/users/${id}`)
         let data = await resp.json()
         return data
@@ -37,7 +35,6 @@ class Trips extends React.Component {  //pass user ID here
      }
 
     render(){
-
         const userTrips = () => {
             if (this.state.myDestinations) {
                 return this.state.myDestinations.map(dest => {

@@ -2,7 +2,7 @@ import React from 'react';
 
 class BookDetails extends React.Component {
     render(){
-        //console.log(this.props)
+
         return(
             <div className="bookDetails">
                 <h3>{this.props.title}</h3>

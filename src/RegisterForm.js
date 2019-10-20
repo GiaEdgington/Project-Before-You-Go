@@ -34,9 +34,8 @@ class RegisterForm extends React.Component {
     }
 
     render(){
-        //console.log(this.state.username)
-        return (
 
+        return (
             <div>
                 <form onSubmit={this.handleSubmit} className="signup">
                     <label>Sign up</label><br/>

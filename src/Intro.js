@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from './images/intro.jpg';
 import { Link } from 'react-router-dom';
 
 class Intro extends React.Component {
@@ -10,7 +9,6 @@ class Intro extends React.Component {
                 <Link to='./login' className="loginIntro">Sign in</Link>
                 <p className="register">Or register <Link to='./signup'>here</Link></p>
                 </div>
-                
             </div>
         )
     }

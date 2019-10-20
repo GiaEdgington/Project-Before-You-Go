@@ -9,9 +9,7 @@ class DestinationBook extends React.Component {
     }
 
     handleClick = () => {
-        // this.setState({ isHidden: !this.state.isHidden})
         let title = this.props.book.title;
-        //console.log(title);
          window.open(`https://www.amazon.com/s?k=${title}+book`, '_blank');
     }
        
