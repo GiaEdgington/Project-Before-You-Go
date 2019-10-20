@@ -26,7 +26,7 @@ class Book extends React.Component {
             let title = typeof response.items[0].volumeInfo.title == "undefined" ? "" : response.items[0].volumeInfo.title;
             let authors = typeof response.items[0].volumeInfo.authors == "undefined" ? "" : response.items[0].volumeInfo.authors;
             let image = typeof response.items[0].volumeInfo.imageLinks == "undefined" ? "" : response.items[0].volumeInfo.imageLinks.smallThumbnail;
-            let synopsis = typeof response.items[0].volumeInfo.description == "undefined" ? "" : response.items[0].volumeInfo.description;
+            let synopsis = typeof response.items[0].volumeInfo.description == "undefined" ? "Information not available." : response.items[0].volumeInfo.description;
 
             this.setState({ title: title,
                             authors: authors,
@@ -74,7 +74,7 @@ class Book extends React.Component {
             <div className="flex-item" >
                 { this.state.image == "" 
                 ?
-                 <div style={{ width:'130px',height:'230px',border:'1px black solid',backgroundColor:'white'}}>
+                 <div style={{ width:'130px',height:'200px',border:'1px black solid',backgroundColor:'white'}}>
                      <p style={{ padding:'1em', fontWeight:'bolder', fontSize:'1em'}}>{this.state.title}</p>
                 </div>
                  :
@@ -94,11 +94,11 @@ class Book extends React.Component {
                     }
                 </div>
                 }
-                { !this.state.isHidden
+                { !this.state.isHidden && this.state.synopsis != ""
                 ? 
                 <div className="synopsis"><h4>{this.state.title}</h4><p>{this.state.synopsis}</p></div>
                 :
-                <div></div>
+                <p></p>
                 }
             </div>
         )

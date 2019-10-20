@@ -21,7 +21,7 @@ class DestinationBook extends React.Component {
                 <div className="flex-item" >
                     <img style={{ width:'130px'}} src={this.props.book.image} alt="" />
                     <div>
-                        <button onClick={this.handleClick} className="remButton">More</button>
+                        <button onClick={this.handleClick} className="remButton">Buy</button>
                         <button className="remButton" onClick={() => this.props.deleteBook(this.props.book.id)}>Remove</button>
                     </div>
                     { !this.state.isHidden

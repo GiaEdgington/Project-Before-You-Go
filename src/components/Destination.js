@@ -41,7 +41,7 @@ class Destination extends React.Component {
                     <details onToggle= {() => this.handleToggle(this.props.dest.id)}>
                     <summary className="tripTitle">{this.props.dest.name}</summary>
                     </details>
-                <button onClick={ () => this.props.removeTrip(this.props.dest.id ) } className="delTrip">Delete Trip</button>
+                    <button onClick={ () => this.props.removeTrip(this.props.dest.id ) } className="delTrip">Delete Trip</button>
                     { !this.state.isHidden
                     ?
                     <div className="bookList">

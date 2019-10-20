@@ -49,11 +49,17 @@ class Trips extends React.Component {  //pass user ID here
             <div className="tripStyle"> 
                 <div className="tripClass">
                     <Link className='link' to="/homepage">Go Back</Link>
-                    <h3 >My Trips</h3>
+                    <h3>My Trips</h3>
                 </div>
                 
                 <hr></hr>
-                {userTrips()}
+                {
+                    this.state.myDestinations.length > 0 
+                    ?
+                    userTrips()
+                    :
+                    <p style={{ marginLeft:'9em', fontSize:'1em'}}>No upcoming trips.</p>
+                }
             </div>
         )
     }
