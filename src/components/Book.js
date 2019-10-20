@@ -16,7 +16,6 @@ class Book extends React.Component {
     }
 
     //fetch for book info, update state
-
     fetchBooks = () => {
         const key2 = 'AIzaSyCUZDVxJS93fWmpk3QKfscn15qz7segx-4';
         const key1 = 'AIzaSyCH0tIhWJCGZf1HFjw_hRFlJ0vlNuLVtf8';
@@ -73,8 +72,14 @@ class Book extends React.Component {
         console.log(this.props.book)
         return (
             <div className="flex-item" >
-                {/* <p style={{ width:'150px'}}>{this.state.title}</p> */}
-                <img src={this.state.image} alt="" />
+                { this.state.image == "" 
+                ?
+                 <div style={{ width:'150px',height:'230px',border:'1px black solid',backgroundColor:'white'}}>
+                     <p style={{ padding:'1em', fontWeight:'bolder', fontSize:'1em'}}>{this.state.title}</p>
+                </div>
+                 :
+                 <img src={this.state.image} style={{ width:'150px'}} alt="" />
+                }
                 <button onClick={this.handleClick} className="buttonPage">Learn more</button>
                 { this.props.destination_id && !this.state.added
                 ?
