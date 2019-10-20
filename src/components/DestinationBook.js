@@ -4,12 +4,12 @@ import React from 'react';
 class DestinationBook extends React.Component {
 
     state={
-        show: false,
+        isHidden: true,
         deleted: false
     }
 
     handleClick = () => {
-        this.setState({ show: true })
+        this.setState({ isHidden: !this.state.isHidden})
     }
        
     render(){
@@ -21,7 +21,7 @@ class DestinationBook extends React.Component {
                         <button onClick={this.handleClick} className="remButton">More</button>
                         <button className="remButton" onClick={() => this.props.deleteBook(this.props.book.id)}>Remove</button>
                     </div>
-                    { this.state.show
+                    { !this.state.isHidden
                     ? 
                     <p className="synopsis">{this.props.book.synopsis}</p>
                     :

@@ -6,7 +6,7 @@ class Book extends React.Component {
         authors: [],
         image: "",
         synopsis: "",
-        show: false,
+        isHidden: true,
         added: false,
         destination: ''
     }
@@ -41,7 +41,7 @@ class Book extends React.Component {
 
     //set state show to true, for details on book
     handleClick = () => {
-        this.setState({ show: true})
+        this.setState({ isHidden: !this.state.isHidden})
     };
 
     //saves book
@@ -89,7 +89,7 @@ class Book extends React.Component {
                     }
                 </div>
                 }
-                { this.state.show
+                { !this.state.isHidden
                 ? 
                 <div className="synopsis"><p>{this.state.synopsis}</p></div>
                 :
