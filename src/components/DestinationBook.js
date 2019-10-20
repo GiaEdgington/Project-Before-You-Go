@@ -9,7 +9,10 @@ class DestinationBook extends React.Component {
     }
 
     handleClick = () => {
-        this.setState({ isHidden: !this.state.isHidden})
+        // this.setState({ isHidden: !this.state.isHidden})
+        let title = this.props.book.title;
+        //console.log(title);
+         window.open(`https://www.amazon.com/s?k=${title}+book`, '_blank');
     }
        
     render(){
@@ -23,7 +26,8 @@ class DestinationBook extends React.Component {
                     </div>
                     { !this.state.isHidden
                     ? 
-                    <p className="synopsis">{this.props.book.synopsis}</p>
+                    <div className="synopsis"><h4>{this.props.book.title}</h4><p>{this.props.book.synopsis}</p>
+                    </div>
                     :
                     <div></div>
                     }

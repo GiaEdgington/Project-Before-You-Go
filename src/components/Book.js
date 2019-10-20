@@ -69,7 +69,7 @@ class Book extends React.Component {
     };
 
     render(){
-        console.log(this.props.book)
+        //console.log(this.props.book)
         return (
             <div className="flex-item" >
                 { this.state.image == "" 
