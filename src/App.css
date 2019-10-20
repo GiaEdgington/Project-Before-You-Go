@@ -89,10 +89,22 @@ li {
 .synopsis {
   width: 150px;
   height: 250px;
+  background-color: #f2efe5;
+  opacity: 0.75;
   overflow:scroll;
   padding: 0 2px;
-
 }
+
+.synopsis p {
+  padding: 0.25em 0.8em 0;
+  margin: 0;
+}
+
+.synopsis h4 {
+  padding: 0.55em 0.8em 0;
+  margin: 0;
+}
+
 
 ::-webkit-scrollbar { 
   display: none; 

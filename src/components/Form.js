@@ -77,9 +77,10 @@ class Form extends React.Component {
                 <form onSubmit={this.handleSubmit} >
                 <label>{this.state.destination}:</label><br/>
                 <input type="text" placeholder="" name="destination" onChange={(e) => this.handleChange(e.target.value)} /><br/>
+                <button className="buttonPage" onClick={this.getDestinations}>Create Trip</button>
                 <button className="buttonPage">Search for Books</button>
                 </form>
-                <button className="buttonPage" onClick={this.getDestinations}>Create Trip</button>
+                
                 {
                     this.state.message == "destination exists"
                     ?

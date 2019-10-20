@@ -74,11 +74,11 @@ class Book extends React.Component {
             <div className="flex-item" >
                 { this.state.image == "" 
                 ?
-                 <div style={{ width:'150px',height:'230px',border:'1px black solid',backgroundColor:'white'}}>
+                 <div style={{ width:'130px',height:'230px',border:'1px black solid',backgroundColor:'white'}}>
                      <p style={{ padding:'1em', fontWeight:'bolder', fontSize:'1em'}}>{this.state.title}</p>
                 </div>
                  :
-                 <img src={this.state.image} style={{ width:'150px'}} alt="" />
+                 <img src={this.state.image} style={{ width:'130px'}} alt="" />
                 }
                 <button onClick={this.handleClick} className="buttonPage">Learn more</button>
                 { this.props.destination_id && !this.state.added
@@ -96,7 +96,7 @@ class Book extends React.Component {
                 }
                 { !this.state.isHidden
                 ? 
-                <div className="synopsis"><p>{this.state.synopsis}</p></div>
+                <div className="synopsis"><h4>{this.state.title}</h4><p>{this.state.synopsis}</p></div>
                 :
                 <div></div>
                 }
