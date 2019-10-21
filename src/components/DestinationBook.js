@@ -4,26 +4,28 @@ import React from 'react';
 class DestinationBook extends React.Component {
 
     state={
-        show: false,
+        isHidden: true,
         deleted: false
     }
 
     handleClick = () => {
-        this.setState({ show: true })
+        let title = this.props.book.title;
+         window.open(`https://www.amazon.com/s?k=${title}+book`, '_blank');
     }
        
     render(){
         return(
-            <div className="bookList">
+            <div>
                 <div className="flex-item" >
                     <img style={{ width:'130px'}} src={this.props.book.image} alt="" />
                     <div>
-                        <button onClick={this.handleClick} className="remButton">More</button>
+                        <button onClick={this.handleClick} className="remButton">Buy</button>
                         <button className="remButton" onClick={() => this.props.deleteBook(this.props.book.id)}>Remove</button>
                     </div>
-                    { this.state.show
+                    { !this.state.isHidden
                     ? 
-                    <p className="synopsis">{this.props.book.synopsis}</p>
+                    <div className="synopsis"><h4>{this.props.book.title}</h4><p>{this.props.book.synopsis}</p>
+                    </div>
                     :
                     <div></div>
                     }

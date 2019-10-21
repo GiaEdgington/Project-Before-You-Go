@@ -47,7 +47,6 @@ class LoginForm extends React.Component {
                         <input type="text" placeholder="username" name="username" onChange={this.handleChange}></input><br/>
                         <input type="password" placeholder="password" name="password" onChange={this.handleChange}></input><br/>
                         <button className="buttonPage">  Submit</button>
-                        {/* <p>or Sign in <Link to="/sign_in">here </Link></p> */}
                 </form>
             </div>
         )

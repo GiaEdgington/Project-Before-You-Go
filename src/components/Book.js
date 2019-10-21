@@ -6,38 +6,41 @@ class Book extends React.Component {
         authors: [],
         image: "",
         synopsis: "",
-        show: false,
-        added: false
+        isHidden: true,
+        added: false,
+        destination: ''
     }
 
-    //fetch for book info, saves details on state
     componentDidMount() {
+        this.fetchBooks();
+    }
 
-        const key2 = 'AIzaSyCUZDVxJS93fWmpk3QKfscn15qz7segx-4'
-        const key1 = 'AIzaSyCH0tIhWJCGZf1HFjw_hRFlJ0vlNuLVtf8'
+    //fetch for book info, update state
+    fetchBooks = () => {
+        const key2 = 'AIzaSyCUZDVxJS93fWmpk3QKfscn15qz7segx-4';
+        const key1 = 'AIzaSyCH0tIhWJCGZf1HFjw_hRFlJ0vlNuLVtf8';
 
         fetch(`https://www.googleapis.com/books/v1/volumes?q=+title:${this.props.book}&maxResults=1&key=${key1}`)
         .then(response => response.json())
         .then(response => {
-
             let title = typeof response.items[0].volumeInfo.title == "undefined" ? "" : response.items[0].volumeInfo.title;
             let authors = typeof response.items[0].volumeInfo.authors == "undefined" ? "" : response.items[0].volumeInfo.authors;
             let image = typeof response.items[0].volumeInfo.imageLinks == "undefined" ? "" : response.items[0].volumeInfo.imageLinks.smallThumbnail;
-            let synopsis = typeof response.items[0].volumeInfo.description == "undefined" ? "" : response.items[0].volumeInfo.description;
+            let synopsis = typeof response.items[0].volumeInfo.description == "undefined" ? "Information not available." : response.items[0].volumeInfo.description;
 
             this.setState({ title: title,
                             authors: authors,
                             image: image,
                             synopsis: synopsis,
                             finished: true
-                         })
-        })
-    }
+                         });
+        });
+    };
 
-    //set state show to true, for details on book
+    //book details
     handleClick = () => {
-        this.setState({ show: true})
-    }
+        this.setState({ isHidden: !this.state.isHidden})
+    };
 
     //saves book
     //find if destination already exists
@@ -60,16 +63,21 @@ class Book extends React.Component {
         .then(() => {
             //should look at response and confirm trip was added. this is temporary
             this.setState({added: true})
-        }) 
+        });  
 
-    }
-    
+    };
+
     render(){
-        //console.log(this.props)
         return (
             <div className="flex-item" >
-                {/* <p style={{ width:'150px'}}>{this.state.title}</p> */}
-                <img src={this.state.image} alt="" />
+                { this.state.image == "" 
+                ?
+                 <div style={{ width:'130px',height:'200px',border:'1px black solid',backgroundColor:'white'}}>
+                     <p style={{ padding:'1em', fontWeight:'bolder', fontSize:'1em'}}>{this.state.title}</p>
+                </div>
+                 :
+                 <img src={this.state.image} style={{ width:'130px'}} alt="" />
+                }
                 <button onClick={this.handleClick} className="buttonPage">Learn more</button>
                 { this.props.destination_id && !this.state.added
                 ?
@@ -84,11 +92,11 @@ class Book extends React.Component {
                     }
                 </div>
                 }
-                { this.state.show
+                { !this.state.isHidden && this.state.synopsis != ""
                 ? 
-                <div className="synopsis"><p>{this.state.synopsis}</p></div>
+                <div className="synopsis"><h4>{this.state.title}</h4><p>{this.state.synopsis}</p></div>
                 :
-                <div></div>
+                <p></p>
                 }
             </div>
         )
