@@ -16,7 +16,7 @@ class RegisterForm extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault()
 
-        fetch("http://localhost:3000/signup", {
+        fetch("https://beforeyougo.herokuapp.com/signup", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -34,7 +34,6 @@ class RegisterForm extends React.Component {
     }
 
     render(){
-
         return (
             <div>
                 <form onSubmit={this.handleSubmit} className="signup">
@@ -47,5 +46,4 @@ class RegisterForm extends React.Component {
         )
     }
 }
-
 export default RegisterForm;
