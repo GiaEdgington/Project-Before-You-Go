@@ -18,14 +18,14 @@ class Trips extends React.Component {  //pass user ID here
     }
 
     setDestinations = async (id) => {
-        let resp = await fetch(`http://localhost:3000/users/${id}`)
+        let resp = await fetch(`https://beforeyougo.herokuapp.com/users/${id}`)
         let data = await resp.json()
         return data
     }
 
     removeTrip = (id) => {
 
-        fetch(`http://localhost:3000/destinations/${id}`, {
+        fetch(`https://beforeyougo.herokuapp.com/destinations/${id}`, {
             method:'DELETE'
         })
         .then(res => res.json())

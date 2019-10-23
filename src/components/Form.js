@@ -21,7 +21,7 @@ class Form extends React.Component {
     getDestinations = () => {
         let user_id = this.props.id
 
-        fetch(`http://localhost:3000/users/${user_id}`)
+        fetch(`https://beforeyougo.herokuapp.com/users/${user_id}`)
         .then(response => response.json())
         .then(response => this.addTrip(response))
     }
@@ -36,7 +36,7 @@ class Form extends React.Component {
         }
 
         if(!dests.includes(this.destinationSearch)){
-            fetch('http://localhost:3000/destinations', {
+            fetch('https://beforeyougo.herokuapp.com/destinations', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
