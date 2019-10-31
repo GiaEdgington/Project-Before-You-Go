@@ -46,7 +46,7 @@ class Book extends React.Component {
     //find if destination already exists
     addBook = () => {
 
-        fetch('http://before-you-go.herokuapp.com/books', {
+        fetch('https://before-you-go.herokuapp.com/books', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

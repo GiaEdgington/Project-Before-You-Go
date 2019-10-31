@@ -17,7 +17,7 @@ class LoginForm extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault()
 
-        fetch("http://before-you-go.herokuapp.com/login", {
+        fetch("https://before-you-go.herokuapp.com/login", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
