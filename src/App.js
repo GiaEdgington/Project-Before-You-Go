@@ -19,10 +19,10 @@ class App extends React.Component {
   updateUserInfo = (username, id) => {
     this.setState({ username: username, id: id })
   }
-
+//fuck the moron that developed git. fuck him!!!!!!
   setUser = async () => {
     //if (localStorage.token) {    
-      let response = await fetch('http://before-you-go.herokuapp.com/homepage', {
+      let response = await fetch('https://before-you-go.herokuapp.com/homepage', {
           headers: {
               Authorization: localStorage.token
           }
