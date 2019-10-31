@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+li {
+  list-style-type: none;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.bookList {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.searchContainer {
+  margin-left: 5em;
+  margin-top: 3em;
+}
+
+.searchContainer form {
+  line-height: 2em;
+}
+
+.searchContainer form input {
+  width: 15em;
+  line-height: 2em;
+  margin-bottom: 0;
+}
+
+.buttonPage {
+  width:auto;
+  margin-right: 0.15em;
+  margin-top: 0.5em;
+  line-height: 1.7em;
+  margin-bottom: 0.3em;
+  font-size: .7em;
+}
+
+.tripTitle {
+  outline: none;
+  margin-bottom: 2em;
+}
+
+.flex-item {
+  width: 200px;
+  height: auto;
+  padding: 0.5em;
+}
+
+.synopsis {
+  width: 150px;
+  height: 250px;
+  background-color: #f2efe5;
+  opacity: 0.75;
+  overflow:scroll;
+  padding: 0 2px;
+}
+
+.synopsis p {
+  padding: 0.25em 0.8em 0;
+  margin: 0;
+}
+
+.synopsis h4 {
+  padding: 0.55em 0.8em 0;
+  margin: 0;
+}
+
+
+::-webkit-scrollbar { 
+  display: none; 
+}
+
+
+.remButton {
+  margin-top: .25em;
+  margin-right: 3px;
+  line-height: 1.9em;
+  font-size: .7em;
+}
+
+.delTrip {
+  float:right;
+  margin-bottom:0;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.9em;
+  font-size: .7em;
+}
+
+p {
+  font-size: 12px;
+}
+
+.link {
+  font-family: 'Roboto', sans-serif;
+  line-height: 2em;
+  color: black;
+  float: right;
+  margin-right: 7em;
+  text-decoration: none;
+}
+
+.signup {
+  z-index: 10;
+  margin: 20em auto;
+  text-align: center;
+}
+
+.signup input {
+  text-align: center;
+  line-height: 2.5em;
+  margin-top: 0.35em;
+  margin-bottom: 1em;
+}
+
+.signup label {
+  font-size: 0.85em;
+}
+
+.myDestinations {
+  width: 70%;
+  background-color: #d6d0ba;
+  padding: .7em;
+  margin: 5em auto 2em;
+  height: 100%;
+  overflow: hidden;
+}
+
+.tripClass {
+  font-family: 'Roboto', sans-serif;
+  margin-left: 9em;
+  margin-top: 3em;
+}
+
+.intro {
+  min-height: 100vh;
+  background-size: 100%;
+  background-position: 50%;
+  background-image:url('./images/intro.jpg');
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
+.loginIntro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 0.9em;
+  width: 100px;
+  margin-left: -50px;
+  text-align:center;
+  font-family: 'Roboto', sans-serif;
+  background-color:#ebd76b;
+  color: black;
+  text-decoration: none;
+  padding: .5em .1em;
+  border-radius: 10px;
+}
+
+.register {position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 0.8em;
+  width: 100px;
+  margin-left: -50px;
+  margin-top: 3em;
+  text-align:center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.hello {
+  background: #f3ecd2;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+}
+
+.homepage {
+  background-image:url('./images/booksBg.jpg');
+  background-repeat: repeat;
+  min-height: 100vh;
+}
+
+.tripStyle {
+  background-color: #f2efe5;
+  position: absolute;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.listClass {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
