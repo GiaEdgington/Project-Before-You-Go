@@ -28,9 +28,7 @@ class Form extends React.Component {
 
     //get user's destinations and post new one
     addTrip = (response) => { 
-
         let dests = []
-
         if (response.destinations) {
             dests = response.destinations.map(dest => dest.name)
         }
