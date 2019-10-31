@@ -37,12 +37,12 @@ class Book extends React.Component {
         });
     };
 
-    //book details
+    //for book details
     handleClick = () => {
         this.setState({ isHidden: !this.state.isHidden})
     };
 
-    //saves book
+    //saving book
     //find if destination already exists
     addBook = () => {
 
