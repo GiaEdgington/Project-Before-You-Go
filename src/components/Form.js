@@ -67,7 +67,7 @@ class Form extends React.Component {
     }
 
     render(){
-
+        console.log(this.props);
         return(
             <div className="searchContainer">
                 <form onSubmit={this.handleSubmit} >
