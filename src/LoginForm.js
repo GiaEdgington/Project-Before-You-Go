@@ -28,7 +28,6 @@ class LoginForm extends React.Component {
           .then(res => res.json())
           .then(userInfo => {
             if (userInfo.token) {
-                console.log(userInfo)
                 localStorage.token = userInfo.token
                 this.props.updateUserInfo(userInfo.username, userInfo.id)
                 this.props.history.push('/homepage')
