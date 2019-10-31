@@ -16,7 +16,7 @@ class RegisterForm extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault()
 
-        fetch("https://beforeyougo.herokuapp.com/signup", {
+        fetch("http://before-you-go.herokuapp.com/signup", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

@@ -11,7 +11,7 @@ class Destination extends React.Component {
 
     handleToggle= (id) => {
         //console.log(id)
-       fetch(`https://beforeyougo.herokuapp.com/destinations/${id}`)
+       fetch(`http://before-you-go.herokuapp.com/destinations/${id}`)
        .then(response => response.json())
        .then(response => {
            this.setState({ destBooks: response.books, isHidden: !this.state.isHidden})
@@ -19,8 +19,8 @@ class Destination extends React.Component {
     }
 
     deleteBook = (id) => {
-        fetch(`https://beforeyougo.herokuapp.com/books/${id}`, {
-            method: 'DELETE'
+        fetch(`http://before-you-go.herokuapp.com/books/${id}`, {
+        method: 'DELETE'
         }).then(response => response.json())
         .then((response) => {
             this.handleClick(this.props.dest.id)

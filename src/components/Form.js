@@ -21,7 +21,7 @@ class Form extends React.Component {
     getDestinations = () => {
         let user_id = this.props.id
 
-        fetch(`https://beforeyougo.herokuapp.com/users/${user_id}`)
+        fetch(`http://before-you-go.herokuapp.com/users/${user_id}`)
         .then(response => response.json())
         .then(response => this.addTrip(response))
     }
@@ -36,7 +36,7 @@ class Form extends React.Component {
         }
 
         if(!dests.includes(this.destinationSearch)){
-            fetch('https://beforeyougo.herokuapp.com/destinations', {
+            fetch('http://before-you-go.herokuapp.com/destinations', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
@@ -55,12 +55,10 @@ class Form extends React.Component {
     }
 
 
-    //after search, set state with book titles, pass state to BookDisplay
     handleSubmit = (e) => {
         e.preventDefault()
-
         let destination = `Novels set in ${this.destinationSearch}`
-
+        
         fetch(encodeURI(`https://en.wikipedia.org/w/api.php?action=query&format=json&list=categorymembers&cmtitle=Category:${destination}&cmlimit=18&origin=*`))
         .then(response => response.json())
         .then(data => {
