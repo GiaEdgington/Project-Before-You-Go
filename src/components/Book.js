@@ -79,11 +79,11 @@ class Book extends React.Component {
                  <img src={this.state.image} style={{ width:'130px'}} alt="" />
                 }
                 <button onClick={this.handleClick} className="buttonPage">Learn more</button>
-                { this.props.destination_id && !this.state.added
-                ?
+                {/* { this.props.destination_id && !this.state.added */}
+                {/* ? */}
                 <button className="buttonPage" onClick={this.addBook}>Add Book</button>
-                :
-                <div>
+                {/* : */}
+                {/* <div>
                     { this.state.added
                     ?
                     <p>Book has been added!</p>
@@ -91,7 +91,7 @@ class Book extends React.Component {
                     <div></div>
                     }
                 </div>
-                }
+                } */}
                 { !this.state.isHidden && this.state.synopsis != ""
                 ? 
                 <div className="synopsis"><h4>{this.state.title}</h4><p>{this.state.synopsis}</p></div>
