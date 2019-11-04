@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   setUser = async () => {
-    //if (localStorage.token) {    
+    if (localStorage.token) {    
       let response = await fetch('https://before-you-go.herokuapp.com/homepage', {
           headers: {
               Authorization: localStorage.token
@@ -29,7 +29,7 @@ class App extends React.Component {
       })
       let data = await response.json()
       return data
-    //}
+    }
   }
 
   componentDidMount(){
