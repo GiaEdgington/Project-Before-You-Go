@@ -8,7 +8,9 @@ class Book extends React.Component {
         synopsis: "",
         isHidden: true,
         added: false,
-        destination: ''
+        destination: '',
+        destination_id: null,
+        message: ""
     }
 
     componentDidMount() {
@@ -42,10 +44,47 @@ class Book extends React.Component {
         this.setState({ isHidden: !this.state.isHidden})
     };
 
+         //find if destination exists
+         getDestinations = () => {
+             //console.log(this.props.destination);
+            let user_id = this.props.id
+    
+            fetch(`https://before-you-go.herokuapp.com/users/${user_id}`)
+            .then(response => response.json())
+            .then(response => this.addTrip(response))
+        }
+    
+        //get user's destinations and post new one
+        addTrip = (response) => { 
+            let dests = []
+            if (response.destinations) {
+                dests = response.destinations.map(dest => dest.name)
+            }
+    
+            if(!dests.includes(this.props.destination)){
+                fetch('https://before-you-go.herokuapp.com/destinations', {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name: this.props.destination,    
+                        user_id: this.props.id
+                    })
+                }).then(response => response.json())
+                .then( response => this.setState({ destination: response.name, destination_id: response.id }))    
+            } else {
+                let destination = response.destinations.find(dest => { return dest.name === this.props.destination })
+                this.setState({ destination: destination.name, destination_id: destination.id })
+            }
+            //console.log(this.state.destination);
+            this.addBook(); 
+        }   
+
     //saving book
     //find if destination already exists
     addBook = () => {
-
+        //console.log(this.state.destination_id);
         fetch('https://before-you-go.herokuapp.com/books', {
             method: 'POST',
             headers: {
@@ -57,20 +96,20 @@ class Book extends React.Component {
                 author: this.state.authors.join(),
                 image: this.state.image,
                 synopsis: this.state.synopsis,
-                destination_id: this.props.destination_id
+                destination_id: this.state.destination_id
             })
         }).then(response => response.json())
         .then(() => {
             //should look at response and confirm trip was added. this is temporary
             this.setState({added: true})
         });  
-
+        //look into this.props.destination_id
     };
 
     render(){
         return (
             <div className="flex-item" >
-                { this.state.image == "" 
+                { this.state.image === "" 
                 ?
                  <div style={{ width:'130px',height:'200px',border:'1px black solid',backgroundColor:'white'}}>
                      <p style={{ padding:'1em', fontWeight:'bolder', fontSize:'1em'}}>{this.state.title}</p>
@@ -81,18 +120,16 @@ class Book extends React.Component {
                 <button onClick={this.handleClick} className="buttonPage">Learn more</button>
                 {/* { this.props.destination_id && !this.state.added */}
                 {/* ? */}
-                <button className="buttonPage" onClick={this.addBook}>Add Book</button>
-                {/* : */}
-                {/* <div>
+                <button className="buttonPage" onClick={this.getDestinations}>Add Book</button>
+
                     { this.state.added
                     ?
                     <p>Book has been added!</p>
                     :
                     <div></div>
                     }
-                </div>
-                } */}
-                { !this.state.isHidden && this.state.synopsis != ""
+
+                { !this.state.isHidden && this.state.synopsis !== ""
                 ? 
                 <div className="synopsis"><h4>{this.state.title}</h4><p>{this.state.synopsis}</p></div>
                 :
