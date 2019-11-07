@@ -9,6 +9,14 @@ class Destination extends React.Component {
         isHidden: true
     }
 
+    handleClick = (id) => {
+        fetch(`https://before-you-go.herokuapp.com/destinations/${id}`)
+       .then(response => response.json())
+       .then(response => {
+           this.setState({ destBooks: response.books })
+        })
+    }
+
     handleToggle= (id) => {
         //console.log(id)
        fetch(`https://before-you-go.herokuapp.com/destinations/${id}`)
