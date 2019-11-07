@@ -84,7 +84,6 @@ class Book extends React.Component {
     //saving book
     //find if destination already exists
     addBook = () => {
-        //console.log(this.state.destination_id);
         fetch('https://before-you-go.herokuapp.com/books', {
             method: 'POST',
             headers: {
@@ -120,6 +119,7 @@ class Book extends React.Component {
                 <button onClick={this.handleClick} className="buttonPage">Learn more</button>
                 {/* { this.props.destination_id && !this.state.added */}
                 {/* ? */}
+
                 <button className="buttonPage" onClick={this.getDestinations}>Add Book</button>
 
                     { this.state.added
@@ -128,8 +128,7 @@ class Book extends React.Component {
                     :
                     <div></div>
                     }
-
-                { !this.state.isHidden && this.state.synopsis !== ""
+                { !this.state.isHidden && this.state.synopsis != ""
                 ? 
                 <div className="synopsis"><h4>{this.state.title}</h4><p>{this.state.synopsis}</p></div>
                 :
