@@ -24,7 +24,6 @@ class Trips extends React.Component {  //pass user ID here
     }
 
     removeTrip = (id) => {
-
         fetch(`https://before-you-go.herokuapp.com/destinations/${id}`, {
             method:'DELETE'
         })
