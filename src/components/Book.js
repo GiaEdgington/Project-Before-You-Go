@@ -78,30 +78,47 @@ class Book extends React.Component {
                 this.setState({ destination: destination.name, destination_id: destination.id })
             }
             //console.log(this.state.destination);
-            this.addBook(); 
+            this.getBooks(); 
         }   
 
+        getBooks = () => {
+            //console.log(this.props.destination);
+   
+           fetch(`https://before-you-go.herokuapp.com/destinations/${this.state.destination_id}`)
+           .then(response => response.json())
+           .then(response => this.addBook(response))
+       }
+
     //saving book
-    //find if destination already exists
-    addBook = () => {
-        fetch('https://before-you-go.herokuapp.com/books', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accepts': 'application/json'
-            },
-            body: JSON.stringify({
-                title: this.state.title,
-                author: this.state.authors.join(),
-                image: this.state.image,
-                synopsis: this.state.synopsis,
-                destination_id: this.state.destination_id
-            })
-        }).then(response => response.json())
-        .then(() => {
-            //should look at response and confirm trip was added. this is temporary
-            this.setState({added: true})
-        });  
+    addBook = (response) => {
+        let books = [];
+        if (response.books) {
+            books = response.books.map(book => book.title)
+        }
+        
+        if(!books.includes(this.state.title)){
+            fetch('https://before-you-go.herokuapp.com/books', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accepts': 'application/json'
+                },
+                body: JSON.stringify({
+                    title: this.state.title,
+                    author: this.state.authors.join(),
+                    image: this.state.image,
+                    synopsis: this.state.synopsis,
+                    destination_id: this.state.destination_id
+                })
+            }).then(response => response.json())
+            .then(() => {
+                //should look at response and confirm trip was added. this is temporary
+                this.setState({added: true})
+            }); 
+        } else {
+            this.setState({ message: 'This book is already in your collection.'})
+        }
+        //add message book already in collection
         //look into this.props.destination_id
     };
 
@@ -128,6 +145,8 @@ class Book extends React.Component {
                     :
                     <div></div>
                     }
+                    { this.state.message.length > 1 ? <p>{this.state.message}</p> : <p></p>}
+                    
                 { !this.state.isHidden && this.state.synopsis != ""
                 ? 
                 <div className="synopsis"><h4>{this.state.title}</h4><p>{this.state.synopsis}</p></div>
