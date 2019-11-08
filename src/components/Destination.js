@@ -18,7 +18,6 @@ class Destination extends React.Component {
     }
 
     handleToggle= (id) => {
-        //console.log(id)
        fetch(`https://before-you-go.herokuapp.com/destinations/${id}`)
        .then(response => response.json())
        .then(response => {
@@ -57,8 +56,9 @@ class Destination extends React.Component {
                     </div>
                     :
                     <div></div>
-                    } 
+                    }
                 </section>
+                <div class="bookshelf"></div> 
             </div>
         )
     }

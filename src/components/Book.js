@@ -83,7 +83,6 @@ class Book extends React.Component {
 
         getBooks = () => {
             //console.log(this.props.destination);
-   
            fetch(`https://before-you-go.herokuapp.com/destinations/${this.state.destination_id}`)
            .then(response => response.json())
            .then(response => this.addBook(response))
@@ -146,7 +145,7 @@ class Book extends React.Component {
                     <div></div>
                     }
                     { this.state.message.length > 1 ? <p>{this.state.message}</p> : <p></p>}
-                    
+
                 { !this.state.isHidden && this.state.synopsis != ""
                 ? 
                 <div className="synopsis"><h4>{this.state.title}</h4><p>{this.state.synopsis}</p></div>
