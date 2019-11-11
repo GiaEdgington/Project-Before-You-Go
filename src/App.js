@@ -12,7 +12,7 @@ import Intro from './Intro';
 class App extends React.Component {
 
   state = {
-    username: 'login',
+    username: '',
     id: null
   }
 
@@ -26,7 +26,6 @@ class App extends React.Component {
       })
       .then(response => response.json())
       .then((profileData) => {
-        //this.setUser(profileData);
         this.setState({ username: profileData.username, id: profileData.id });
       })
     }
@@ -37,9 +36,7 @@ class App extends React.Component {
     localStorage.id = profileData.id;
   }
 
-
   render() {
-
     return(
       <Switch>
         <Route
