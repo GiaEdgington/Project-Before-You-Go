@@ -146,7 +146,7 @@ class Book extends React.Component {
                     }
                     { this.state.message.length > 1 ? <p>{this.state.message}</p> : <p></p>}
 
-                { !this.state.isHidden && this.state.synopsis != ""
+                { !this.state.isHidden && this.state.synopsis !== ""
                 ? 
                 <div className="synopsis"><h4>{this.state.title}</h4><p>{this.state.synopsis}</p></div>
                 :

@@ -58,7 +58,7 @@ class Destination extends React.Component {
                     <div></div>
                     }
                 </section>
-                <div class="bookshelf"></div> 
+                <div className="bookshelf"></div> 
             </div>
         )
     }

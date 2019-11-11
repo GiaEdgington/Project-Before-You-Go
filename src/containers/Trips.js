@@ -10,17 +10,18 @@ class Trips extends React.Component {  //pass user ID here
     }
 
     componentDidMount(){
-        this.props.setUser().then(response => {
-            this.setDestinations(response.id).then(destinationData => {
-                this.setState({ myDestinations: destinationData.destinations, user_id: response.id})
-            })
-        })
+        //this.props.setUser().then(response => {
+            console.log(this.props.id)
+            this.setDestinations();
+        //})
     }
 
-    setDestinations = async (id) => {
-        let resp = await fetch(`https://before-you-go.herokuapp.com/users/${id}`)
-        let data = await resp.json()
-        return data
+    setDestinations = () => {
+        fetch(`https://before-you-go.herokuapp.com/users/${this.props.id}`)
+        .then(response => response.json())
+        .then(destinationData => {
+            this.setState({ myDestinations: destinationData.destinations, user_id: this.props.id});
+        })
     }
 
     removeTrip = (id) => {
@@ -41,6 +42,7 @@ class Trips extends React.Component {  //pass user ID here
                 })
             }
         }
+        //console.log(this.props.id)
         return(
             <div className="tripStyle"> 
                 <div className="tripClass">

@@ -63,6 +63,7 @@ li {
   line-height: 3em;
   margin-top: 3em;
   margin-left: 44%;
+  margin-bottom: 3em;
 }
 
 input:-webkit-autofill,
@@ -257,16 +258,25 @@ p {
   width: 100vw;
 }
 
-.listClass {
-  font-family: 'Roboto', sans-serif;
-}
-
 .bookshelf {
   width: 70%;
   margin: -2em auto;
   padding: 0 0.7em;
   height: 1em;
   background-color: brown;
+}
+
+.counter {
+  border: 1px red solid;
+  background-color: red;
+  color: white;
+  font-weight: bolder;
+  border-radius: 50%;
+  width: 0.5em;
+  height: 0.5em;
+  padding: .5em;
+  margin-right: 1em;
+  margin-left: -.5em;
 }
 
 
