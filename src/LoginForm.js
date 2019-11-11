@@ -30,11 +30,11 @@ class LoginForm extends React.Component {
           .then(userInfo => {
             if (userInfo.token) {
                 localStorage.token = userInfo.token
-                this.props.setUser(userInfo.username, userInfo.id)
-                this.props.history.push('/homepage')
+                this.props.setUser(userInfo);
+                this.props.history.push('/homepage');
             }
             else {
-                this.props.history.push('/signup')
+                this.props.history.push('/signup');
             }
           })
     }
@@ -46,7 +46,7 @@ class LoginForm extends React.Component {
                         <label>Log In</label><br/>
                         <input type="text" placeholder="username" name="username" onChange={this.handleChange}></input><br/>
                         <input type="password" placeholder="password" name="password" onChange={this.handleChange}></input><br/>
-                        <button className="buttonPage">  Submit</button>
+                        <button className="buttonPage">Submit</button>
                 </form>
             </div>
         )

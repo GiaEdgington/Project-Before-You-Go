@@ -15,6 +15,7 @@ class Homepage extends React.Component {
     }
 
     numTrips = () => {
+        //console.log(this.props.id);
         if (this.props.id != null) {
             fetch(`https://before-you-go.herokuapp.com/users/${this.props.id}`)
             .then(response => response.json())
@@ -23,8 +24,8 @@ class Homepage extends React.Component {
             })
         }
     }
-
     render(){
+        console.log(this.props);
         if (this.state.trips < 0) {
             this.numTrips();
         } 
@@ -32,7 +33,7 @@ class Homepage extends React.Component {
             <div className='homepage'>
                 <div style={{ float:"right",marginRight:"7em"}}>
                     <Link to = "/myTrips"><button className="buttonPage" style={{ marginRight:'5px'}}>My Trips</button></Link>
-                    <span className="counter">{ this.state.trips < 0 ? <span>0</span> : this.state.trips }</span>
+                    <span className="counter">{this.state.trips < 0 ? <span>0</span> : this.state.trips }</span>
                     <button className="buttonPage" onClick={this.signOut}>Sign out</button>
                     <p>Welcome, {this.props.username}.</p>
                 </div>
