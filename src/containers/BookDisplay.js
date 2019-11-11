@@ -12,13 +12,6 @@ class BookDisplay extends React.Component {
 
         return (
             <div className="container">
-                { this.props.bookTitles.length > 0 
-                ?
-                <h2 className="listClass">List of Books</h2>
-             
-                :
-                <div></div>
-                }
                 <div className="bookList ">
                 {displayBooks}
                 </div>

@@ -16,27 +16,27 @@ class App extends React.Component {
     id: null
   }
 
-  updateUserInfo = (username, id) => {
-    this.setState({ username: username, id: id })
-  }
-
-  setUser = async () => {
-    if (localStorage.token) {    
-      let response = await fetch('https://before-you-go.herokuapp.com/homepage', {
-          headers: {
-              Authorization: localStorage.token
-          }
+ 
+  componentDidMount(){
+    if (localStorage.token){
+      fetch('https://before-you-go.herokuapp.com/homepage', {
+        headers: {
+          Authorization: localStorage.token
+        }
       })
-      let data = await response.json()
-      return data
+      .then(response => response.json())
+      .then((profileData) => {
+        //this.setUser(profileData);
+        this.setState({ username: profileData.username, id: profileData.id });
+      })
     }
   }
 
-  componentDidMount(){
-    this.setUser().then(profileData => {
-      this.setState({ username: profileData.username, id: profileData.id })
-    })
+  setUser = (profileData) => {
+    this.setState({ username: profileData.username, id: profileData.id });
+    localStorage.id = profileData.id;
   }
+
 
   render() {
 
@@ -45,26 +45,26 @@ class App extends React.Component {
         <Route
           exact 
           path='/' 
-          render ={(routerProps)=> <Intro {...routerProps } username={this.state.username} id={this.state.id}/>} 
+          render={(routerProps)=> <Intro {...routerProps } />} 
         />
 
         <Route
           path='/homepage' 
-          render ={(routerProps)=> <Homepage {...routerProps } username={this.state.username} id={this.state.id}/>} 
+          render={(routerProps)=> <Homepage {...routerProps } username={this.state.username} id={this.state.id}/>} 
         />
         <Route 
           exact 
           path='/myTrips' 
-          render ={(routerProps)=> <Trips {...routerProps } username={this.state.username} id={this.state.id} setUser={ this.setUser }/>} 
+          render={(routerProps)=> <Trips {...routerProps } username={this.state.username} id={this.state.id} />} 
         />
         <Route 
           exact 
           path='/destinations' 
-          render ={(routerProps)=> <Destination {...routerProps } username={this.state.username} id={this.state.id}/>} 
+          render={(routerProps)=> <Destination {...routerProps } username={this.state.username} id={this.state.id}/>} 
         />
         <Route
           path='/login'
-          render ={(routerProps)=> <LoginForm {...routerProps } updateUserInfo={ this.updateUserInfo }/> }
+          render={(routerProps)=> <LoginForm {...routerProps } setUser={ this.setUser}/> }
         />
         <Route path='/signup' component={ RegisterForm }/>
 

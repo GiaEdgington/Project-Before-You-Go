@@ -14,7 +14,7 @@ class Form extends React.Component {
     }
 
     handleChange = (destination) => {
-        this.state.destination = destination;
+        this.setState({destination: destination});
     }
 
     handleSubmit = (e) => {
@@ -31,7 +31,7 @@ class Form extends React.Component {
     }
 
     render(){
-        console.log(this.props);
+        //console.log(this.props);
         return(
             <div className="searchContainer">
                 <form onSubmit={this.handleSubmit} >

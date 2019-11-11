@@ -11,6 +11,7 @@ class LoginForm extends React.Component {
         this.setState({ 
             [event.target.name] : event.target.value
         })
+        localStorage.username = this.state.username;
     }
 
 
@@ -29,7 +30,7 @@ class LoginForm extends React.Component {
           .then(userInfo => {
             if (userInfo.token) {
                 localStorage.token = userInfo.token
-                this.props.updateUserInfo(userInfo.username, userInfo.id)
+                this.props.setUser(userInfo.username, userInfo.id)
                 this.props.history.push('/homepage')
             }
             else {
