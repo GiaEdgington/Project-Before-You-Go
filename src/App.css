@@ -57,11 +57,15 @@ li {
   margin: 0 auto;
 }
 
+.searchContainer label {
+  font-size: 1.3em;
+}
+
 .searchContainer form {
   width: 15%;
   text-align: center;
   line-height: 3em;
-  margin-top: 3em;
+  margin-top: 5em;
   margin-left: 44%;
   margin-bottom: 3em;
 }
@@ -76,10 +80,10 @@ input:-webkit-autofill:active  {
 }
 
 .searchContainer form input {
-  width: 15em;
+  width: 19em;
   border-radius: 100px;
   border: 1px rgba(0, 0, 0, 0.2)solid;
-  line-height: 2em;
+  line-height: 2.3em;
   margin-bottom: 0;
   text-align: center;
   font-size: 1em;
@@ -102,7 +106,7 @@ input:-webkit-autofill:active  {
   line-height: 1.7em;
   padding: 0.5em 1em;
   margin-bottom: 0.3em;
-  font-size: .7em;
+  font-size: 1em;
   outline: none;
 }
 
@@ -251,6 +255,10 @@ p {
   min-height: 100vh;
 }
 
+.homepage p {
+  font-size: 1em;
+}
+
 .tripStyle {
   background-color: #f2efe5;
   position: absolute;
@@ -267,17 +275,16 @@ p {
 }
 
 .counter {
-  border: 1px red solid;
-  background-color: red;
+  padding: .5em .7em;
   color: white;
+  background: red;
   font-weight: bolder;
-  border-radius: 50%;
-  width: 0.5em;
-  height: 0.5em;
-  padding: .5em;
-  margin-right: 1em;
-  margin-left: -.5em;
+  border-radius: 10%;
+  font-size: 20px;
+  margin-left: .5em;
+  margin-right: -.7em;
 }
+
 
 
 

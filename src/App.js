@@ -33,7 +33,6 @@ class App extends React.Component {
 
   setUser = (profileData) => {
     this.setState({ username: profileData.username, id: profileData.id });
-    localStorage.id = profileData.id;
   }
 
   render() {
