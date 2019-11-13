@@ -132,11 +132,11 @@ class Book extends React.Component {
                  :
                  <img src={this.state.image} style={{ width:'130px'}} alt="" />
                 }
-                <button onClick={this.handleClick} className="buttonPage">Learn more</button>
+                <button onClick={this.handleClick} className="buttonBook">Learn more</button>
                 {/* { this.props.destination_id && !this.state.added */}
                 {/* ? */}
 
-                <button className="buttonPage" onClick={this.getDestinations}>Add Book</button>
+                <button className="buttonBook" onClick={this.getDestinations}>Add Book</button>
 
                     { this.state.added
                     ?

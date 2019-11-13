@@ -110,6 +110,20 @@ input:-webkit-autofill:active  {
   outline: none;
 }
 
+.buttonBook {
+  width:auto;
+  border: none;
+  background-color:rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin-right: 0.15em;
+  margin-top: 0.5em;
+  line-height: 1.7em;
+  padding: 0.5em 1em;
+  margin-bottom: 0.3em;
+  font-size: .6em;
+  outline: none;
+} 
+
 .tripTitle {
   outline: none;
   margin-bottom: 2em;
