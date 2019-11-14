@@ -3,7 +3,8 @@ import React from 'react';
 class LoginForm extends React.Component {
     state = {
         username: "",
-        password: ""
+        password: "",
+        error: false
     }
 //pass handleLogin callback as props from parent component
 
@@ -29,12 +30,10 @@ class LoginForm extends React.Component {
           .then(res => res.json())
           .then(userInfo => {
             if (userInfo.token) {
-                localStorage.token = userInfo.token
                 this.props.setUser(userInfo);
                 this.props.history.push('/homepage');
-            }
-            else {
-                this.props.history.push('/signup');
+            } else {
+                this.setState({ error: true })
             }
           })
     }
@@ -48,6 +47,7 @@ class LoginForm extends React.Component {
                         <input type="password" placeholder="password" name="password" onChange={this.handleChange}></input><br/>
                         <button className="buttonPage">Submit</button>
                 </form>
+                { this.state.error ? <p>Wrong username or password. Try again.</p> : <p></p>}
             </div>
         )
     }

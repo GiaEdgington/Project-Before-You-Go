@@ -263,6 +263,13 @@ p {
   width: 100vw;
 }
 
+
+.hello p {
+  text-align: center;
+  margin-top: -19em;
+  font-size: 1em;
+}
+
 .homepage {
   background-image:url('./images/booksBg.jpg');
   background-repeat: repeat;
