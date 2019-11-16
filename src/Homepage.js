@@ -32,9 +32,9 @@ class Homepage extends React.Component {
         return(
             <div className='homepage'>
                 <div style={{ float:"right",marginRight:"7em"}}>
-                    <Link to = "/myTrips"><button className="buttonPage" style={{ marginRight:'5px'}}>My Trips<span className="counter">{this.state.trips < 0 ? <span>0</span> : this.state.trips }</span></button></Link>
+                    <Link to = "/myTrips" className="buttonPage" style={{ marginRight:'5px'}}>My Trips<span className="counter">{this.state.trips < 0 ? <span>0</span> : this.state.trips }</span></Link>
                     
-                    <button className="buttonPage" onClick={this.signOut}>Sign out</button>
+                    <Link type="button" className="buttonPage" onClick={this.signOut}>Sign out</Link>
                     <p>Welcome, {this.props.username}.</p>
                 </div>
                 <Form id={ this.props.id }/> 

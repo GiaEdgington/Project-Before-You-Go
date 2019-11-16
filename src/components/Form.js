@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import BookDisplay from '../containers/BookDisplay';
 
 class Form extends React.Component {
@@ -38,7 +39,7 @@ class Form extends React.Component {
                     <label>Your destination:</label><br/>
                     <input type="text" placeholder="" name="destination" onChange={(e) => this.handleChange(e.target.value)} /><br/>
                     {/* <button className="buttonPage" onClick={this.getDestinations}>Create Trip</button> */}
-                    <button className="buttonPage">Search for Books</button>
+                    <Link className="buttonPage">Search for Books</Link>
                 </form>
                 
                 {
