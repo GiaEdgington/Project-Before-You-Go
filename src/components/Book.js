@@ -56,7 +56,7 @@ class Book extends React.Component {
     
         //get user's destinations and post new one
         addTrip = (response) => { 
-            let dests = []
+            let dests = [];
             if (response.destinations) {
                 dests = response.destinations.map(dest => dest.name)
             }
