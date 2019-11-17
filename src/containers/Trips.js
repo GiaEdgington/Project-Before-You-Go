@@ -11,7 +11,7 @@ class Trips extends React.Component {  //pass user ID here
 
     componentDidMount(){
         //this.props.setUser().then(response => {
-            console.log(this.props.id)
+            //console.log(this.props.id)
             this.setDestinations();
         //})
     }
@@ -46,7 +46,7 @@ class Trips extends React.Component {  //pass user ID here
         return(
             <div className="tripStyle"> 
                 <div className="tripClass">
-                    <Link className='link' to="/homepage">Go Back</Link>
+                    <Link to="/homepage" className='link'>Go Back</Link>
                     <h3>My Trips</h3>
                 </div>
                 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import BookDisplay from '../containers/BookDisplay';
 
 class Form extends React.Component {
@@ -39,7 +38,7 @@ class Form extends React.Component {
                     <label>Your destination:</label><br/>
                     <input type="text" placeholder="" name="destination" onChange={(e) => this.handleChange(e.target.value)} /><br/>
                     {/* <button className="buttonPage" onClick={this.getDestinations}>Create Trip</button> */}
-                    <Link className="buttonPage">Search for Books</Link>
+                    <button className="buttonPage">Search for Books</button>
                 </form>
                 
                 {
@@ -52,7 +51,7 @@ class Form extends React.Component {
                 { this.state.notFound === 0 ?
                     <p>No Books were found for this destination.</p>
                 :
-                <BookDisplay bookTitles={this.state.books} destination_id={this.state.destination_id} getDestinations={this.getDestinations} id={this.props.id} destination={this.state.destination}/>
+                <BookDisplay bookTitles={this.state.books} destination_id={this.state.destination_id} getDestinations={this.getDestinations} id={this.props.id} destination={this.state.destination} numTrips={this.props.numTrips}/>
                 }
             </div>
         )

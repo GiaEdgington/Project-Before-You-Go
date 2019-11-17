@@ -88,6 +88,11 @@ input {
  outline: none;
 }
 
+button {
+  cursor: pointer;
+  outline: none;
+}
+
 .searchContainer form input {
   width: 19em;
   border-radius: 100px;
@@ -106,22 +111,32 @@ input {
 }
 
 .buttonPage {
-  cursor: pointer;
-  width:auto;
+  width: auto;
   border: none;
   background-color:rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   margin-right: 0.15em;
   margin-top: 0.5em;
   line-height: 1.7em;
-  padding: 0.5em 1em;
+  padding: 0.7em 1em;
   margin-bottom: 0.3em;
   font-size: 1.1em;
-  outline: none;
+}
+
+.buttonTrips {
+  width: auto;
+  border: none;
+  background-color:rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin-right: 0.15em;
+  margin-top: 0.5em;
+  line-height: 1.7em;
+  padding: 0.9em 1em;
+  margin-bottom: 0.3em;
+  font-size: 1.1em;
 }
 
 .buttonBook {
-  cursor: pointer;
   width:auto;
   border: none;
   background-color:rgba(0, 0, 0, 0.2);
@@ -132,7 +147,6 @@ input {
   padding: 0.5em 1em;
   margin-bottom: 0.3em;
   font-size: .6em;
-  outline: none;
 } 
 
 .tripTitle {
@@ -172,7 +186,6 @@ input {
 
 
 .remButton {
-  cursor: pointer;
   margin-top: .25em;
   margin-right: 3px;
   line-height: 1.9em;
@@ -180,7 +193,6 @@ input {
 }
 
 .delTrip {
-  cursor: pointer;
   float:right;
   margin-bottom:0;
   font-family: 'Roboto', sans-serif;
@@ -310,7 +322,7 @@ p {
 }
 
 .counter {
-  padding: .4em .7em;
+  padding: .75em;
   color: white;
   background: red;
   font-weight: bolder;
