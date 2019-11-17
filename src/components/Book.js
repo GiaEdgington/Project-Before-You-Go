@@ -1,4 +1,5 @@
 import React from 'react';
+import { DH_UNABLE_TO_CHECK_GENERATOR } from 'constants';
 
 class Book extends React.Component {
     state = {
@@ -19,7 +20,7 @@ class Book extends React.Component {
 
     //fetch for book info, update state
     fetchBooks = () => {
-        const key2 = 'AIzaSyCUZDVxJS93fWmpk3QKfscn15qz7segx-4';
+        //const key2 = 'AIzaSyCUZDVxJS93fWmpk3QKfscn15qz7segx-4';
         const key1 = 'AIzaSyCH0tIhWJCGZf1HFjw_hRFlJ0vlNuLVtf8';
 
         fetch(`https://www.googleapis.com/books/v1/volumes?q=+title:${this.props.book}&maxResults=1&key=${key1}`)
@@ -77,8 +78,10 @@ class Book extends React.Component {
                 let destination = response.destinations.find(dest => { return dest.name === this.props.destination })
                 this.setState({ destination: destination.name, destination_id: destination.id })
             }
-            //console.log(this.state.destination);
-            this.getBooks(); 
+            //console.log(this.state.destination_id);
+            this.props.numTrips();
+            if(this.state.destination_id != null){
+                this.getBooks();}
         }   
 
         getBooks = () => {
@@ -133,8 +136,6 @@ class Book extends React.Component {
                  <img src={this.state.image} style={{ width:'130px'}} alt="" />
                 }
                 <button onClick={this.handleClick} className="buttonBook">Learn more</button>
-                {/* { this.props.destination_id && !this.state.added */}
-                {/* ? */}
 
                 <button className="buttonBook" onClick={this.getDestinations}>Add Book</button>
 

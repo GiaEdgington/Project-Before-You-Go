@@ -25,19 +25,19 @@ class Homepage extends React.Component {
         }
     }
     render(){
-        console.log(this.props);
+        //console.log(this.props);
         if (this.state.trips < 0) {
             this.numTrips();
         } 
         return(
             <div className='homepage'>
                 <div style={{ float:"right",marginRight:"7em"}}>
-                    <Link to = "/myTrips" className="buttonPage" style={{ marginRight:'5px'}}>My Trips<span className="counter">{this.state.trips < 0 ? <span>0</span> : this.state.trips }</span></Link>
+                    <Link to = "/myTrips" className="buttonTrips" style={{ marginRight:'5px'}}>My Trips<span className="counter">{this.state.trips < 0 ? <span>0</span> : this.state.trips }</span></Link>
                     
-                    <Link type="button" className="buttonPage" onClick={this.signOut}>Sign out</Link>
+                    <button className="buttonPage" onClick={this.signOut}>Sign out</button>
                     <p>Welcome, {this.props.username}.</p>
                 </div>
-                <Form id={ this.props.id }/> 
+                <Form id={ this.props.id } numTrips={this.numTrips}/> 
             </div>
         )
     }
