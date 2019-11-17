@@ -1,5 +1,4 @@
 import React from 'react';
-import { DH_UNABLE_TO_CHECK_GENERATOR } from 'constants';
 
 class Book extends React.Component {
     state = {

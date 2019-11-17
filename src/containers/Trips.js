@@ -46,8 +46,8 @@ class Trips extends React.Component {  //pass user ID here
         return(
             <div className="tripStyle"> 
                 <div className="tripClass">
-                    <Link to="/homepage" className='link'>Go Back</Link>
-                    <h3>My Trips</h3>
+                    <Link to="/homepage" className='link'>GO BACK</Link>
+                    <h3>MY TRIPS</h3>
                 </div>
                 
                 <hr></hr>

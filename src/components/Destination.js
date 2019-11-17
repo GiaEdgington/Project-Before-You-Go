@@ -43,22 +43,21 @@ class Destination extends React.Component {
         })
 
         return(
-            <div>
-                <section className="myDestinations">
-                    <details onToggle= {() => this.handleToggle(this.props.dest.id)}>
-                    <summary className="tripTitle">{this.props.dest.name}</summary>
-                    </details>
-                    <button onClick={ () => this.props.removeTrip(this.props.dest.id ) } className="delTrip">Delete Trip</button>
-                    { !this.state.isHidden
-                    ?
-                    <div className="bookList">
-                    {getBooks}
-                    </div>
-                    :
-                    <div></div>
-                    }
-                </section>
-                <div className="bookshelf"></div> 
+            <div className="">
+                    <section className="myDestinations">
+                        <details onToggle= {() => this.handleToggle(this.props.dest.id)}>
+                        <summary className="tripTitle">{this.props.dest.name}</summary>
+                        </details>
+                        <button onClick={ () => this.props.removeTrip(this.props.dest.id ) } className="delTrip">Delete Trip</button>
+                        { !this.state.isHidden
+                        ?
+                        <div className="bookList">
+                        {getBooks}
+                        </div>
+                        :
+                        <div></div>
+                        }
+                    </section>
             </div>
         )
     }
