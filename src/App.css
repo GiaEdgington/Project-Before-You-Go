@@ -113,33 +113,33 @@ button {
 .buttonPage {
   width: auto;
   border: none;
-  background-color:rgba(0, 0, 0, 0.2);
+  background-color: #c8c8a7;
   border-radius: 5px;
   margin-right: 0.15em;
   margin-top: 0.5em;
   line-height: 1.7em;
-  padding: 0.7em 1em;
+  padding: 0.15em 1em;
   margin-bottom: 0.3em;
-  font-size: 1.1em;
+  font-size: .75em;
 }
 
 .buttonTrips {
   width: auto;
   border: none;
-  background-color:rgba(0, 0, 0, 0.2);
+  background-color: #c8c8a7;
   border-radius: 5px;
   margin-right: 0.15em;
   margin-top: 0.5em;
   line-height: 1.7em;
-  padding: 0.9em 1em;
+  padding: 0.4em 1em;
   margin-bottom: 0.3em;
-  font-size: 1.1em;
+  font-size: .75em;
 }
 
 .buttonBook {
   width:auto;
   border: none;
-  background-color:rgba(0, 0, 0, 0.2);
+  background-color: #c8c8a7;
   border-radius: 5px;
   margin-right: 0.15em;
   margin-top: 0.5em;
@@ -175,6 +175,7 @@ button {
 }
 
 .synopsis h4 {
+  font-size: .9em;
   padding: 0.55em 0.8em 0;
   margin: 0;
 }
@@ -189,7 +190,7 @@ button {
   margin-top: .25em;
   margin-right: 3px;
   line-height: 1.9em;
-  font-size: .9em;
+  font-size: .6em;
 }
 
 .delTrip {
@@ -197,11 +198,7 @@ button {
   margin-bottom:0;
   font-family: 'Roboto', sans-serif;
   line-height: 1.9em;
-  font-size: 1em;
-}
-
-p {
-  font-size: 12px;
+  font-size: .75em;
 }
 
 .link {
@@ -209,6 +206,7 @@ p {
   line-height: 2em;
   color: black;
   float: right;
+  margin-top:.8em;
   margin-right: 7em;
   text-decoration: none;
 }
@@ -231,19 +229,33 @@ p {
   font-size: 1em;
 }
 
+.destinationBook {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
 .myDestinations {
-  width: 70%;
-  background-color: #d6d0ba;
+  width: 30%;
+  border: 1.5em #c5c59f solid;
+  background-color: #e7e7d9;
   padding: .7em;
-  margin: 5em auto 2em;
+  margin: 2em auto 0;
   height: 100%;
   overflow: hidden;
 }
 
 .tripClass {
   font-family: 'Roboto', sans-serif;
-  margin-left: 9em;
-  margin-top: 3em;
+  background-color: #c5c59f;
+  height: 3em;
+  padding: 2em;
+  margin: 0 auto;
+}
+
+.tripClass h3 {
+  margin-left: 7em;
 }
 
 .intro {
@@ -297,37 +309,31 @@ p {
 }
 
 .homepage {
-  background-image:url('./images/booksBg.jpg');
+  background-image:url('./images/books.jpg');
   background-repeat: repeat;
   min-height: 100vh;
 }
 
 .homepage p {
-  font-size: 1em;
+  font-size: .8em;
 }
 
 .tripStyle {
+  background-image: url('./images/bookcase.jpg');
   background-color: #f2efe5;
   position: absolute;
   min-height: 100vh;
   width: 100vw;
 }
 
-.bookshelf {
-  width: 70%;
-  margin: -2em auto;
-  padding: 0 0.7em;
-  height: 1em;
-  background-color: brown;
-}
-
 .counter {
-  padding: .75em;
+  padding: .20em .35em .35em;
   color: white;
   background: red;
   font-weight: bolder;
   border-radius: 10%;
-  font-size: 20px;
+  font-size: 1.2em;
+  font-weight: bolder;
   margin-left: .5em;
   margin-right: -.8em;
 }
