@@ -55,6 +55,7 @@ li {
   align-content: flex-center;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 4em;
 }
 
 .searchContainer {
@@ -203,10 +204,9 @@ button {
 
 .link {
   font-family: 'Roboto', sans-serif;
-  line-height: 2em;
   color: black;
   float: right;
-  margin-top:.8em;
+  margin-top: 1.7em;
   margin-right: 7em;
   text-decoration: none;
 }
@@ -237,7 +237,7 @@ button {
 }
 
 .myDestinations {
-  width: 30%;
+  width: 35%;
   border: 1.5em #c5c59f solid;
   background-color: #e7e7d9;
   padding: .7em;
