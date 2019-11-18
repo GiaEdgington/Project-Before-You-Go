@@ -6,23 +6,23 @@ import { Link } from 'react-router-dom';
 class Trips extends React.Component {  //pass user ID here
 
     state = {
-        myDestinations: []
+        myDestinations: [],
+        initialized: false
     }
 
     componentDidMount(){
-        //this.props.setUser().then(response => {
-            //console.log(this.props.id)
             this.setDestinations();
-        //})
     }
 
     setDestinations = () => {
-        fetch(`https://before-you-go.herokuapp.com/users/${this.props.id}`)
-        .then(response => response.json())
-        .then(destinationData => {
-            this.setState({ myDestinations: destinationData.destinations, user_id: this.props.id});
-        })
-    }
+        if (this.props.id != null) {
+            fetch(`https://before-you-go.herokuapp.com/users/${this.props.id}`)
+            .then(response => response.json())
+            .then(destinationData => {
+                this.setState({ myDestinations: destinationData.destinations, user_id: this.props.id, initialized: true });
+            })
+        }
+    }                                                   
 
     removeTrip = (id) => {
         fetch(`https://before-you-go.herokuapp.com/destinations/${id}`, {
@@ -35,6 +35,9 @@ class Trips extends React.Component {  //pass user ID here
      }
 
     render(){
+        if(!this.state.initialized){
+            this.setDestinations();
+        }
         const userTrips = () => {
             if (this.state.myDestinations) {
                 return this.state.myDestinations.map(dest => {
@@ -56,7 +59,7 @@ class Trips extends React.Component {  //pass user ID here
                     ?
                     userTrips()
                     :
-                    <p style={{ marginLeft:'9em', fontSize:'1em'}}>No upcoming trips.</p>
+                    <p></p>
                 }
             </div>
         )

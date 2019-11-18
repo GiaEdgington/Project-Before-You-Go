@@ -32,6 +32,7 @@ class LoginForm extends React.Component {
             if (userInfo.token) {
                 this.props.setUser(userInfo);
                 this.props.history.push('/homepage');
+                localStorage.token = userInfo.token;
             } else {
                 this.setState({ error: true })
             }
