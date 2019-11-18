@@ -59,7 +59,11 @@ class Trips extends React.Component {  //pass user ID here
                     ?
                     userTrips()
                     :
-                    <p></p>
+                    this.state.initialized
+                    ?
+                    <p style={{ marginLeft:'11em', marginTop:'-3em', marginRigth:'0', fontSize:'1em'}}>You have no upcoming trips, {this.props.username}.</p>
+                    :
+                    <div></div>
                 }
             </div>
         )
