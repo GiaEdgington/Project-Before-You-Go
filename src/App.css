@@ -59,20 +59,25 @@ li {
 }
 
 .searchContainer {
-  width: 100%;
-  margin: 0 auto;
+  width: 25%;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+  margin: 10em auto;
 }
 
 .searchContainer label {
   font-size: 1.3em;
+  width: 100%;
+  text-align: center;
 }
 
 .searchContainer form {
-  width: 15%;
+  width: 100%;
   text-align: center;
   line-height: 3em;
   margin-top: 5em;
-  margin-left: 44%;
+  margin-left: auto;
   margin-bottom: 3em;
 }
 
@@ -94,8 +99,13 @@ button {
   outline: none;
 }
 
+.buttons {
+  display: block;
+  margin-top: 0;
+}
+
 .searchContainer form input {
-  width: 19em;
+  width: 50%;
   border-radius: 100px;
   border: 1px rgba(0, 0, 0, 0.2)solid;
   line-height: 2.3em;
@@ -327,7 +337,7 @@ button {
 }
 
 .counter {
-  padding: .20em .35em .35em;
+  padding: .20em .7em .35em;
   color: white;
   background: red;
   font-weight: bolder;
