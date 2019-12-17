@@ -31,7 +31,7 @@ class Homepage extends React.Component {
         return(
             <div>
                 {/* review buttons style */}
-                <div class="buttons" style={{ float:"right",marginRight:"7em"}}>
+                <div class="buttons">
                     <Link to = "/myTrips" className="buttonTrips" style={{ marginRight:'5px'}}>My Trips<span className="counter">{this.state.trips < 0 ? <span>0</span> : this.state.trips }</span></Link>
                     <button className="buttonPage" onClick={this.signOut}>Sign out</button>
                     <p>Welcome, {this.props.username}.</p>
