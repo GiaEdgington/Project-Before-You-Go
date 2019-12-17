@@ -129,7 +129,7 @@ class Book extends React.Component {
             <div className="flex-item" >
                 { this.state.image === "" 
                 ?
-                 <div style={{ width:'130px',height:'200px',border:'1px black solid',backgroundColor:'white'}}>
+                 <div style={{ width:'128px',height:'198px',border:'1px black solid',backgroundColor:'white',margin:'0 auto'}}>
                      <p style={{ padding:'1em', fontWeight:'bolder', fontSize:'1em'}}>{this.state.title}</p>
                 </div>
                  :
