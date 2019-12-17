@@ -4,11 +4,11 @@ This app allows users to pick a trip destination and returns location-based book
 
 ## Built with
 
-React
-CSS
-Ruby on Rails
-PostgreSQL
-JSON Web Token
+* React
+* CSS
+* Ruby on Rails
+* PostgreSQL
+* JSON Web Token
 
 ## Getting started
 
