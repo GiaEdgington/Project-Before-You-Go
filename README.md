@@ -1,4 +1,4 @@
-## Before You Go
+# Before You Go
 
 This app allows users to pick a trip destination and returns location-based book recommendations, enhancing awareness of the area’s culture and history prior to or during travel.
 
@@ -13,12 +13,12 @@ Built front-end user interface using React to provide user experience for search
 
 - Created custom CSS to style application.
 
+## Getting started
 
-## Available Scripts
+Go to https://github.com/GiaEdgington/Project-Before-You-Go-API for backend.
 
-In the project directory, you can run:
+Get backend api running
+Run npm install for dependencies
+Run npm start
+Open [http://localhost:3000] or if backend is running [http://localhost:30001] to view it in the browser.
 
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
