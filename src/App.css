@@ -190,8 +190,13 @@ button {
   height: 250px;
   background-color: #f2efe5;
   opacity: 0.75;
-  overflow:scroll;
+  overflow:hidden;
   padding: 0 2px;
+  margin: -0.75em auto 0;
+}
+
+.synopsis :hover {
+  overflow:scroll;
 }
 
 .synopsis p {
@@ -206,10 +211,10 @@ button {
 }
 
 
-::-webkit-scrollbar { 
+/* ::-webkit-scrollbar { 
   display: none; 
 }
-
+ */
 
 .remButton {
   margin-top: .25em;
