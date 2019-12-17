@@ -1,3 +1,5 @@
+![](https://github.com/GiaEdgington/Project-Before-You-Go/blob/master/src/images/screeshot.png?raw=true)
+
 # Before You Go
 
 This app allows users to pick a trip destination and returns location-based book recommendations, enhancing awareness of the area’s culture and history prior to or during travel.
