@@ -4,6 +4,8 @@
 
 This app allows users to pick a trip destination and returns location-based book recommendations, enhancing awareness of the area’s culture and history prior to or during travel.
 
+User can search for book titles and read about them; adding them to a trip will create a book itinerary. Once the books are saved, these can be purchased on Amazon.
+
 ## Built with
 
 * React
