@@ -12,6 +12,13 @@ This app allows users to pick a trip destination and returns location-based book
 * PostgreSQL
 * JSON Web Token
 
+### Live project
+Live project can be found at: https://beforeyougo.netlify.com/
+
+To sign in:
+* Username: User
+* Password: test
+
 ## Getting started
 
 Go to https://github.com/GiaEdgington/Project-Before-You-Go-API for backend.
